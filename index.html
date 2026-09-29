@@ -1,0 +1,2011 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Ann Real Estate presents ultra-luxury ready homes and off-plan architectural statements across Dubai's most prestigious communities. Prices in AED.">
+  <meta name="keywords" content="Dubai luxury property, Ann Real Estate, Palm Jumeirah villas, Downtown Dubai penthouses, Dubai Marina off-plan, Dubai luxury real estate, AED property prices">
+  <meta name="author" content="Ann Real Estate">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+  <link rel="canonical" href="http://localhost:3000/">
+
+  <!-- OpenGraph Metadata for Social Platforms (WhatsApp, LinkedIn, Facebook) -->
+  <meta property="og:locale" content="en_AE">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Ann Real Estate | Ultra-Luxury Dubai Homes & Off-Plan Properties">
+  <meta property="og:description" content="Private Client Advisory for Dubai trophy homes and architectural off-plan launches. Palm Jumeirah, Downtown, Dubai Hills, and Marina.">
+  <meta property="og:url" content="http://localhost:3000/">
+  <meta property="og:site_name" content="Ann Real Estate Dubai">
+  <meta property="og:image" content="assets/images/dubai-hero.jpg">
+
+  <!-- Twitter Card Metadata -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Ann Real Estate | Ultra-Luxury Dubai Property">
+  <meta name="twitter:description" content="Ultra-luxury ready homes and visionary off-plan architectural statements in Dubai.">
+  <meta name="twitter:image" content="assets/images/dubai-hero.jpg">
+
+  <!-- Structured Data: Schema.org RealEstateAgent -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "RealEstateAgent",
+    "name": "Ann Real Estate",
+    "image": "http://localhost:3000/assets/images/dubai-hero.jpg",
+    "url": "http://localhost:3000/",
+    "telephone": "+97148002900",
+    "priceRange": "AED 2,500,000 - AED 120,000,000",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Level 6, Gate Precinct 4, DIFC",
+      "addressLocality": "Dubai",
+      "addressRegion": "Dubai",
+      "postalCode": "00000",
+      "addressCountry": "AE"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 25.2048,
+      "longitude": 55.2708
+    },
+    "openingHoursSpecification": {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+      "opens": "09:00",
+      "closes": "19:00"
+    }
+  }
+  </script>
+
+  <!-- Google Fonts: Cormorant Garamond & Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Core Stylesheet -->
+  <link rel="stylesheet" href="styles/main.css?v=2.2">
+</head>
+<body>
+
+  <!-- =======================================================================
+       TOP NAVIGATION BAR
+       ======================================================================= -->
+  <header id="navbar" class="navbar" role="banner">
+    <div class="navbar-container">
+      
+      <!-- Brand Logo: The word "ANN" with thin gold line and "REAL ESTATE" underneath -->
+      <a href="#home" class="brand-logo brand-logo--white" aria-label="Ann Real Estate">
+        <span class="logo-title">A N N</span>
+        <span class="logo-divider"></span>
+        <span class="logo-subtitle">REAL ESTATE</span>
+      </a>
+
+      <!-- Desktop Navigation Links -->
+      <nav class="nav-links" aria-label="Primary Navigation">
+        <a href="#properties" class="nav-link">Properties</a>
+        <a href="#off-plan" class="nav-link">Off-Plan</a>
+        <a href="#calculator" class="nav-link">Mortgage Calculator</a>
+        <a href="#sell" class="nav-link">Sell</a>
+        <a href="#about" class="nav-link">About</a>
+        <a href="#contact" class="nav-link">Contact</a>
+        <a href="#admin" class="nav-link" onclick="openAdminCrmLogin(event)" style="color: var(--color-gold); font-weight: 500;">Admin CRM</a>
+      </nav>
+
+      <!-- Desktop Right Action Button -->
+      <div class="nav-actions">
+        <button type="button" class="btn btn-nav" onclick="openRegisterModal()">
+          REGISTER INTEREST
+        </button>
+        
+        <!-- Mobile Menu Hamburger Button -->
+        <button type="button" id="mobileToggle" class="mobile-toggle" aria-label="Toggle Navigation Menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- Full-Screen Mobile Navigation Overlay -->
+  <div id="mobileMenu" class="mobile-menu-overlay" aria-hidden="true">
+    <div class="brand-logo brand-logo--charcoal" style="margin-bottom: 36px;">
+      <span class="logo-title">A N N</span>
+      <span class="logo-divider"></span>
+      <span class="logo-subtitle">REAL ESTATE</span>
+    </div>
+
+    <ul class="mobile-nav-links">
+      <li><a href="#home" class="mobile-nav-link" onclick="navigateTo('#home')">Home</a></li>
+      <li><a href="#properties" class="mobile-nav-link" onclick="navigateTo('#properties')">Properties</a></li>
+      <li><a href="#off-plan" class="mobile-nav-link" onclick="navigateTo('#off-plan')">Off-Plan Projects</a></li>
+      <li><a href="#calculator" class="mobile-nav-link" onclick="navigateTo('#calculator')">Mortgage Calculator</a></li>
+      <li><a href="#sell" class="mobile-nav-link" onclick="navigateTo('#sell')">Sell Your Property</a></li>
+      <li><a href="#about" class="mobile-nav-link" onclick="navigateTo('#about')">About Us</a></li>
+      <li><a href="#contact" class="mobile-nav-link" onclick="navigateTo('#contact')">Contact</a></li>
+      <li><a href="#admin" class="mobile-nav-link" onclick="openAdminCrmLogin(event)" style="color: var(--color-gold);">Admin CRM Portal</a></li>
+    </ul>
+
+    <button type="button" class="btn btn-gold-fill" style="margin-bottom: 28px;" onclick="openRegisterModal()">
+      REGISTER INTEREST
+    </button>
+
+    <div class="mobile-contact-info">
+      <div>DIFC GATE PRECINCT 4 • DUBAI, UAE</div>
+      <div style="margin-top: 6px; color: var(--color-gold);">+971 4 800 2900</div>
+    </div>
+  </div>
+
+  <!-- =======================================================================
+       MAIN CONTENT ROUTER VIEWS
+       ======================================================================= -->
+  <main id="mainApp">
+
+    <!-- =====================================================================
+         VIEW 1: HOME PAGE
+         ===================================================================== -->
+    <div id="view-home" class="page-view active">
+      
+      <!-- Hero Section -->
+      <section class="hero-section" id="hero">
+        <div class="hero-overlay"></div>
+
+        <div class="hero-content">
+          <div class="hero-badge">
+            <span class="gold-dot"></span>
+            <span>ANN REAL ESTATE • DUBAI PRIVATE CLIENT ADVISORY</span>
+          </div>
+
+          <h1 class="hero-title">Live Where Luxury Meets the Skyline</h1>
+          
+          <p class="hero-subtitle">
+            Exclusive homes and off-plan investments across Dubai's most sought-after communities
+          </p>
+
+          <div class="hero-actions">
+            <button type="button" class="btn btn-hero-solid" onclick="navigateTo('#properties')">EXPLORE PROPERTIES</button>
+            <button type="button" class="btn btn-hero-outline" onclick="openRegisterModal()">REGISTER INTEREST</button>
+          </div>
+        </div>
+
+        <!-- Dubai Market Highlights Ribbon -->
+        <div class="hero-ribbon">
+          <div class="hero-ribbon-content">
+            <div class="ribbon-item">
+              <span class="ribbon-icon">✦</span>
+              <span class="ribbon-text">0% Personal Income & Capital Gains Tax</span>
+            </div>
+            <div class="ribbon-item">
+              <span class="ribbon-icon">✦</span>
+              <span class="ribbon-text">10-Year Renewable UAE Golden Visa</span>
+            </div>
+            <div class="ribbon-item">
+              <span class="ribbon-icon">✦</span>
+              <span class="ribbon-text">Up to 9.5% Net Rental Yields</span>
+            </div>
+            <div class="ribbon-item">
+              <span class="ribbon-icon">✦</span>
+              <span class="ribbon-text">Statutory Escrow Account Protection</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Home Multi-Parameter Search Bar -->
+      <section style="background-color: var(--color-white); padding: 50px 24px; border-bottom: 1px solid var(--color-light-gray);">
+        <div class="container">
+          <form onsubmit="handleHomeSearch(event)" style="background: var(--color-off-white); padding: 32px; border: 1px solid var(--color-light-gray); box-shadow: var(--shadow-subtle);">
+            <div style="margin-bottom: 16px;">
+              <span class="gold-label">PORTFOLIO SEARCH</span>
+              <h3 style="font-size: 24px; color: var(--color-charcoal); margin: 0;">Find Your Dubai Sanctuary</h3>
+            </div>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)) 160px; gap: 16px; align-items: flex-end;">
+              <div class="form-group">
+                <label>Community</label>
+                <select id="homeSearchCommunity" class="form-control">
+                  <option value="all">All Dubai Communities</option>
+                  <option value="Palm Jumeirah">Palm Jumeirah</option>
+                  <option value="Downtown Dubai">Downtown Dubai</option>
+                  <option value="Dubai Marina">Dubai Marina</option>
+                  <option value="Business Bay">Business Bay</option>
+                  <option value="Dubai Hills Estate">Dubai Hills Estate</option>
+                  <option value="Jumeirah Village Circle">JVC (Jumeirah Village Circle)</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label>Property Type</label>
+                <select id="homeSearchType" class="form-control">
+                  <option value="all">All Property Types</option>
+                  <option value="Villa">Beachfront & Golf Villas</option>
+                  <option value="Penthouse">Sky Penthouses & Duplexes</option>
+                  <option value="Apartment">Luxury Waterfront Apartments</option>
+                  <option value="Loft">Canal Lofts & Suites</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label>Budget (AED)</label>
+                <select id="homeSearchBudget" class="form-control">
+                  <option value="all">Any Price Range</option>
+                  <option value="under-5m">Under AED 5,000,000</option>
+                  <option value="5m-15m">AED 5,000,000 – 15,000,000</option>
+                  <option value="15m-30m">AED 15,000,000 – 30,000,000</option>
+                  <option value="over-30m">AED 30,000,000+ (Ultra-Prime)</option>
+                </select>
+              </div>
+
+              <button type="submit" class="btn btn-charcoal-fill" style="height: 48px; width: 100%;">
+                SEARCH
+              </button>
+            </div>
+          </form>
+        </div>
+      </section>
+
+      <!-- Featured Ready Properties -->
+      <section class="properties-section">
+        <div class="container">
+          <div class="section-header">
+            <span class="gold-label">DISCOVER</span>
+            <h2 class="section-title">Featured Ready Residences</h2>
+            <p class="section-subtitle">
+              Hand-picked trophy homes across Dubai's most prestigious postal codes. Move-in ready with immediate transfer.
+            </p>
+          </div>
+
+          <div id="homeFeaturedGrid" class="property-grid">
+            <!-- Populated by JS -->
+          </div>
+
+          <div style="text-align: center; margin-top: 56px;">
+            <button type="button" class="btn btn-charcoal-outline" onclick="navigateTo('#properties')">
+              VIEW ALL 15 READY HOMES
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Featured Off-Plan Projects -->
+      <section class="offplan-section">
+        <div class="container">
+          <div class="section-header">
+            <span class="gold-label">OFF-PLAN PROJECTS</span>
+            <h2 class="section-title">Upcoming Architectural Icons</h2>
+            <p class="section-subtitle">
+              Acquire off-plan residences with milestone payment plans, capital appreciation potential, and statutory investor protections.
+            </p>
+          </div>
+
+          <div id="homeOffPlanGrid">
+            <!-- Populated by JS -->
+          </div>
+
+          <div style="text-align: center; margin-top: 40px;">
+            <button type="button" class="btn btn-charcoal-fill" onclick="navigateTo('#off-plan')">
+              EXPLORE ALL OFF-PLAN DEVELOPMENTS
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- "Why Invest in Dubai" Section -->
+      <section class="why-invest-section">
+        <div class="container">
+          <div class="section-header">
+            <span class="gold-label">THE DUBAI ADVANTAGE</span>
+            <h2 class="section-title">Why Invest in Dubai Luxury Real Estate</h2>
+            <p class="section-subtitle">
+              A global safe haven offering unmatched wealth preservation, security, and world-class returns.
+            </p>
+          </div>
+
+          <div class="pillars-grid">
+            <div class="pillar-card">
+              <div class="pillar-icon">✦</div>
+              <h3>100% Tax-Free Returns</h3>
+              <p>Zero personal income tax, zero capital gains tax, and zero municipal property tax. Retain 100% of your rental revenue and capital appreciation.</p>
+            </div>
+
+            <div class="pillar-card">
+              <div class="pillar-icon">✦</div>
+              <h3>High Net Rental Yields</h3>
+              <p>Dubai consistently outperforms London, Paris, and New York, delivering between 7.0% and 9.5% net yields across prime residential districts.</p>
+            </div>
+
+            <div class="pillar-card">
+              <div class="pillar-icon">✦</div>
+              <h3>10-Year UAE Golden Visa</h3>
+              <p>Property investments exceeding AED 2,000,000 grant renewable 10-year Golden Residency for you, your spouse, children, and domestic staff.</p>
+            </div>
+
+            <div class="pillar-card">
+              <div class="pillar-icon">✦</div>
+              <h3>Escrow Account Security</h3>
+              <p>Under Dubai Law No. 8, developer funds are locked in official government-regulated escrow accounts released strictly upon construction milestones.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Popular Communities Section -->
+      <section class="communities-section">
+        <div class="container">
+          <div class="section-header">
+            <span class="gold-label">PRIME ENCLAVES</span>
+            <h2 class="section-title">Popular Dubai Communities</h2>
+            <p class="section-subtitle">
+              From waterfront islands to golf course fairways and urban skylines.
+            </p>
+          </div>
+
+          <div class="communities-grid">
+            <div class="community-card" onclick="propFilters.community = 'Palm Jumeirah'; navigateTo('#properties');">
+              <img src="assets/images/palm-villa.jpg" alt="Palm Jumeirah" loading="lazy" />
+              <div class="community-card-overlay">
+                <div class="community-card-name">Palm Jumeirah</div>
+                <div class="community-card-count">3 Trophy Estates Available</div>
+              </div>
+            </div>
+
+            <div class="community-card" onclick="propFilters.community = 'Downtown Dubai'; navigateTo('#properties');">
+              <img src="assets/images/sky-penthouse.jpg" alt="Downtown Dubai" loading="lazy" />
+              <div class="community-card-overlay">
+                <div class="community-card-name">Downtown Dubai</div>
+                <div class="community-card-count">3 Sky Mansions & Duplexes</div>
+              </div>
+            </div>
+
+            <div class="community-card" onclick="propFilters.community = 'Dubai Marina'; navigateTo('#properties');">
+              <img src="https://images.unsplash.com/photo-1518684079-3c830dcef090?auto=format&fit=crop&w=1200&q=85" alt="Dubai Marina" loading="lazy" />
+              <div class="community-card-overlay">
+                <div class="community-card-name">Dubai Marina</div>
+                <div class="community-card-count">3 Waterfront Residences</div>
+              </div>
+            </div>
+
+            <div class="community-card" onclick="propFilters.community = 'Business Bay'; navigateTo('#properties');">
+              <img src="https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?auto=format&fit=crop&w=1200&q=85" alt="Business Bay" loading="lazy" />
+              <div class="community-card-overlay">
+                <div class="community-card-name">Business Bay</div>
+                <div class="community-card-count">2 Canal Lofts & Penthouses</div>
+              </div>
+            </div>
+
+            <div class="community-card" onclick="propFilters.community = 'Dubai Hills Estate'; navigateTo('#properties');">
+              <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=1200&q=85" alt="Dubai Hills Estate" loading="lazy" />
+              <div class="community-card-overlay">
+                <div class="community-card-name">Dubai Hills Estate</div>
+                <div class="community-card-count">2 Championship Golf Villas</div>
+              </div>
+            </div>
+
+            <div class="community-card" onclick="propFilters.community = 'Jumeirah Village Circle'; navigateTo('#properties');">
+              <img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=1200&q=85" alt="JVC" loading="lazy" />
+              <div class="community-card-overlay">
+                <div class="community-card-name">JVC (Jumeirah Village Circle)</div>
+                <div class="community-card-count">2 High-Yield Residences</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Home Register Interest Form Section -->
+      <section style="padding: 100px 24px; background-color: var(--color-white); border-top: 1px solid var(--color-light-gray);">
+        <div class="container" style="max-width: 780px;">
+          <div class="section-header">
+            <span class="gold-label">EXCLUSIVE ALLOCATIONS</span>
+            <h2 class="section-title">Register Your Interest</h2>
+            <p class="section-subtitle">
+              Receive confidential off-market invitations, priority off-plan floorplans, and private client advisory.
+            </p>
+          </div>
+
+          <form onsubmit="handleRegisterInterestSubmit(event)" class="luxury-form" style="background: var(--color-off-white); padding: 44px; border: 1px solid var(--color-light-gray); box-shadow: var(--shadow-subtle);">
+            <!-- Honeypot -->
+            <input type="text" name="website_hp" class="hp-field" style="display: none !important; position: absolute; left: -9999px; visibility: hidden; opacity: 0; width: 0; height: 0;" tabindex="-1" autocomplete="off" aria-hidden="true" />
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+              <div class="form-group">
+                <label>Your Full Name</label>
+                <input type="text" name="full_name" class="form-control" placeholder="Lord / Mr. / Ms. Full Name" required />
+              </div>
+
+              <div class="form-group">
+                <label>Direct Telephone / WhatsApp</label>
+                <input type="tel" name="phone" class="form-control" placeholder="+971 50 000 0000" required />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label>Email Address</label>
+              <input type="email" name="email" class="form-control" placeholder="investor@domain.com" required />
+            </div>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+              <div class="form-group">
+                <label>Target Investment Allocation (AED)</label>
+                <select name="budget_aed" class="form-control">
+                  <option value="5000000">AED 5,000,000 – 15,000,000</option>
+                  <option value="15000000">AED 15,000,000 – 30,000,000</option>
+                  <option value="30000000">AED 30,000,000 – 60,000,000</option>
+                  <option value="60000000">AED 60,000,000+ (Ultra-Prime)</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label>Acquisition Horizon</label>
+                <select name="timeline" class="form-control">
+                  <option value="Immediate Ready Acquisition">Immediate Ready Purchase</option>
+                  <option value="Off-Plan Payment Plan">Off-Plan Milestone Plan</option>
+                  <option value="Exploring Dubai Market">Exploring Market Options</option>
+                </select>
+              </div>
+            </div>
+
+            <button type="submit" class="btn btn-gold-fill" style="width: 100%; margin-top: 14px;">
+              REGISTER VIP ACCESS
+            </button>
+          </form>
+        </div>
+      </section>
+
+    </div>
+
+    <!-- =====================================================================
+         VIEW 2: PROPERTIES CATALOG PAGE
+         ===================================================================== -->
+    <div id="view-properties" class="page-view">
+      <div class="page-hero-banner">
+        <span class="gold-label">ANN REAL ESTATE PORTFOLIO</span>
+        <h1 class="section-title">Ready Residences in Dubai</h1>
+        <p class="section-subtitle">
+          Curated collection of 15 move-in ready homes across Dubai Marina, Downtown, Palm Jumeirah, Business Bay, Dubai Hills, and JVC. Prices in AED.
+        </p>
+      </div>
+
+      <div class="properties-section">
+        <div class="container">
+          
+          <!-- Filter Controls -->
+          <div style="background-color: var(--color-off-white); padding: 28px; border: 1px solid var(--color-light-gray); margin-bottom: 40px;">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)) 1fr auto; gap: 14px; align-items: flex-end;">
+              
+              <div class="form-group">
+                <label>Community</label>
+                <select id="filterCommunity" class="form-control">
+                  <option value="all">All Communities</option>
+                  <option value="Palm Jumeirah">Palm Jumeirah</option>
+                  <option value="Downtown Dubai">Downtown Dubai</option>
+                  <option value="Dubai Marina">Dubai Marina</option>
+                  <option value="Business Bay">Business Bay</option>
+                  <option value="Dubai Hills Estate">Dubai Hills Estate</option>
+                  <option value="Jumeirah Village Circle">JVC</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label>Bedrooms</label>
+                <select id="filterBedrooms" class="form-control">
+                  <option value="all">All Bedrooms</option>
+                  <option value="1">1 Bedroom</option>
+                  <option value="2">2 Bedrooms</option>
+                  <option value="3">3 Bedrooms</option>
+                  <option value="4">4 Bedrooms</option>
+                  <option value="5">5 Bedrooms</option>
+                  <option value="6">6 Bedrooms</option>
+                  <option value="7">7+ Bedrooms</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label>Property Type</label>
+                <select id="filterType" class="form-control">
+                  <option value="all">All Types</option>
+                  <option value="Villa">Villa / Mansion</option>
+                  <option value="Penthouse">Penthouse / Duplex</option>
+                  <option value="Apartment">Apartment</option>
+                  <option value="Loft">Designer Loft</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label>Price Range</label>
+                <select id="filterPrice" class="form-control">
+                  <option value="all">Any Price</option>
+                  <option value="under-5m">Under AED 5M</option>
+                  <option value="5m-15m">AED 5M – 15M</option>
+                  <option value="15m-30m">AED 15M – 30M</option>
+                  <option value="over-30m">AED 30M+</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label>Keyword Search</label>
+                <input type="text" id="filterSearch" class="form-control" placeholder="Search pool, view, frond..." />
+              </div>
+
+              <button type="button" class="btn btn-charcoal-outline" onclick="resetPropertiesCatalogFilters()" style="height: 44px;">
+                RESET
+              </button>
+
+            </div>
+          </div>
+
+          <div id="catalogResultsCount" style="font-size: 12px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--color-warm-gray); margin-bottom: 24px; font-weight: 500;">
+            Showing 15 of 15 Luxury Properties
+          </div>
+
+          <!-- Catalog Grid -->
+          <div id="catalogPropertyGrid" class="property-grid">
+            <!-- Populated by JS -->
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- =====================================================================
+         VIEW 3: DEDICATED PROPERTY DETAIL PAGE
+         ===================================================================== -->
+    <div id="view-property-detail" class="page-view">
+      <div id="propertyDetailContent" class="container">
+        <!-- Rendered dynamically by renderPropertyDetailPage(slug) -->
+      </div>
+    </div>
+
+    <!-- =====================================================================
+         VIEW 4: OFF-PLAN PROJECTS CATALOG PAGE
+         ===================================================================== -->
+    <div id="view-off-plan" class="page-view">
+      <div class="page-hero-banner">
+        <span class="gold-label">SIGNATURE DEVELOPMENTS</span>
+        <h1 class="section-title">Dubai Off-Plan Investment Portfolio</h1>
+        <p class="section-subtitle">
+          Acquire off-plan residences with milestone payment structures, capital appreciation potential, and statutory investor protections.
+        </p>
+      </div>
+
+      <div class="offplan-section">
+        <div class="container">
+          <div id="catalogOffPlanGrid">
+            <!-- Populated by JS -->
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- =====================================================================
+         VIEW 5: DEDICATED OFF-PLAN PROJECT DETAIL PAGE
+         ===================================================================== -->
+    <div id="view-project-detail" class="page-view">
+      <div id="projectDetailContent" class="container">
+        <!-- Rendered dynamically by renderProjectDetailPage(slug) -->
+      </div>
+    </div>
+
+    <!-- =====================================================================
+         VIEW 6: MORTGAGE CALCULATOR PAGE
+         ===================================================================== -->
+    <div id="view-calculator" class="page-view">
+      <div class="page-hero-banner">
+        <span class="gold-label">FINANCIAL ADVISORY</span>
+        <h1 class="section-title">Dubai Mortgage & Cost Calculator</h1>
+        <p class="section-subtitle">
+          Model your monthly commitment in AED alongside official Dubai Land Department (DLD) and administrative transfer fees.
+        </p>
+      </div>
+
+      <div class="calculator-section">
+        <div class="container">
+          
+          <div class="calculator-card">
+            
+            <!-- Inputs Column -->
+            <div class="calc-inputs">
+              
+              <!-- Property Price Slider -->
+              <div class="calc-group">
+                <div class="calc-group-header">
+                  <span class="calc-label">Property Value (AED)</span>
+                  <span id="calcPriceVal" class="calc-value-display">AED 25,000,000</span>
+                </div>
+                <input type="range" id="calcPrice" class="calc-slider" min="1000000" max="80000000" step="500000" value="25000000" aria-label="Property Price in AED">
+                <div style="display: flex; justify-content: space-between; font-size: 11px; color: var(--color-warm-gray); letter-spacing: 0.05em;">
+                  <span>AED 1,000,000</span>
+                  <span>AED 80,000,000</span>
+                </div>
+              </div>
+
+              <!-- Down Payment Slider -->
+              <div class="calc-group">
+                <div class="calc-group-header">
+                  <span class="calc-label">Down Payment (%)</span>
+                  <span id="calcDownVal" class="calc-value-display">25% (AED 6,250,000)</span>
+                </div>
+                <input type="range" id="calcDownPayment" class="calc-slider" min="20" max="70" step="5" value="25" aria-label="Down payment percentage">
+                <div style="display: flex; justify-content: space-between; font-size: 11px; color: var(--color-warm-gray); letter-spacing: 0.05em;">
+                  <span>20% (UAE Minimum)</span>
+                  <span>70%</span>
+                </div>
+              </div>
+
+              <!-- Loan Duration Slider -->
+              <div class="calc-group">
+                <div class="calc-group-header">
+                  <span class="calc-label">Loan Duration (Years)</span>
+                  <span id="calcDurationVal" class="calc-value-display">25 Years</span>
+                </div>
+                <input type="range" id="calcDuration" class="calc-slider" min="5" max="25" step="5" value="25" aria-label="Mortgage duration">
+                <div style="display: flex; justify-content: space-between; font-size: 11px; color: var(--color-warm-gray); letter-spacing: 0.05em;">
+                  <span>5 Years</span>
+                  <span>25 Years (UAE Maximum)</span>
+                </div>
+              </div>
+
+              <!-- Interest Rate Slider -->
+              <div class="calc-group">
+                <div class="calc-group-header">
+                  <span class="calc-label">Interest Rate (%)</span>
+                  <span id="calcInterestVal" class="calc-value-display">4.50%</span>
+                </div>
+                <input type="range" id="calcInterest" class="calc-slider" min="3.5" max="7.5" step="0.25" value="4.5" aria-label="Annual interest rate">
+                <div style="display: flex; justify-content: space-between; font-size: 11px; color: var(--color-warm-gray); letter-spacing: 0.05em;">
+                  <span>3.50% (Competitive Fixed)</span>
+                  <span>7.50%</span>
+                </div>
+              </div>
+
+              <!-- Interactive Visual Loan-to-Value (LTV) Breakdown Chart -->
+              <div class="ltv-chart-wrapper">
+                <div class="ltv-chart-header">
+                  <span class="ltv-chart-title">CAPITAL ALLOCATION (LTV BREAKDOWN)</span>
+                  <span id="ltvRatioLabel" class="ltv-ratio-label">LTV: 75% | EQUITY: 25%</span>
+                </div>
+                
+                <div class="ltv-bar-container">
+                  <div id="ltvBarEquity" class="ltv-bar-segment ltv-equity" style="width: 25%;" title="Down Payment (Equity)"></div>
+                  <div id="ltvBarLoan" class="ltv-bar-segment ltv-loan" style="width: 75%;" title="Mortgage Loan (Financing)"></div>
+                </div>
+
+                <div class="ltv-legend">
+                  <div class="ltv-legend-item">
+                    <span class="ltv-legend-color ltv-equity-color"></span>
+                    <span class="ltv-legend-text">Equity Down Payment: <strong id="ltvLegendEquity">AED 6,250,000</strong></span>
+                  </div>
+                  <div class="ltv-legend-item">
+                    <span class="ltv-legend-color ltv-loan-color"></span>
+                    <span class="ltv-legend-text">Bank Financing: <strong id="ltvLegendLoan">AED 18,750,000</strong></span>
+                  </div>
+                  <div class="ltv-legend-item">
+                    <span class="ltv-legend-color ltv-fees-color"></span>
+                    <span class="ltv-legend-text">Statutory Acquisition Costs: <strong id="ltvLegendFees">AED 1,529,780</strong></span>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- Output Breakdown Column -->
+            <div class="calc-results">
+              <div>
+                <span class="gold-label" style="color: var(--color-gold);">ESTIMATED MONTHLY INSTALLMENT</span>
+                <div class="calc-result-monthly">
+                  <div id="calcMonthlyPayment" class="amount">AED 104,228</div>
+                  <div style="font-size: 11px; color: rgba(255,255,255,0.6); letter-spacing: 0.1em; text-transform: uppercase;">Per Month in AED</div>
+                </div>
+
+                <div class="breakdown-row">
+                  <span>Mortgage Loan Amount:</span>
+                  <span id="calcLoanAmount">AED 18,750,000</span>
+                </div>
+
+                <div class="breakdown-row">
+                  <span>Down Payment Required:</span>
+                  <span id="calcDownAmount">AED 6,250,000</span>
+                </div>
+
+                <div class="breakdown-row">
+                  <span>DLD Transfer Fee (4% + AED 580):</span>
+                  <span id="calcDldFee">AED 1,000,580</span>
+                </div>
+
+                <div class="breakdown-row">
+                  <span>Agency & Advisory Fee (2% + VAT):</span>
+                  <span id="calcAgencyFee">AED 525,000</span>
+                </div>
+
+                <div class="breakdown-row breakdown-total">
+                  <span>Total Initial Cash Required:</span>
+                  <span id="calcUpfrontCash">AED 7,779,780</span>
+                </div>
+              </div>
+
+              <!-- Form to Speak to an Advisor -->
+              <div style="margin-top: 32px; border-top: 1px solid rgba(255,255,255,0.12); padding-top: 24px;">
+                <span class="gold-label" style="color: var(--color-gold);">CONFIDENTIAL FINANCING DESK</span>
+                <h4 style="color: #FFFFFF; font-size: 18px; margin-bottom: 12px;">Speak to a Private Mortgage Advisor</h4>
+                
+                <form onsubmit="handleMortgageAdvisorSubmit(event)" class="luxury-form">
+                  <!-- Anti-spam -->
+                  <input type="text" name="website_hp" class="hp-field" style="display: none !important; position: absolute; left: -9999px; visibility: hidden; opacity: 0; width: 0; height: 0;" tabindex="-1" autocomplete="off" aria-hidden="true" />
+
+                  <div class="form-group" style="margin-bottom: 10px;">
+                    <input type="text" name="full_name" class="form-control" placeholder="Your Name" required style="background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.2); color: #fff;" />
+                  </div>
+
+                  <div class="form-group" style="margin-bottom: 12px;">
+                    <input type="tel" name="phone" class="form-control" placeholder="Direct Phone / WhatsApp" required style="background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.2); color: #fff;" />
+                  </div>
+
+                  <button type="submit" class="btn btn-gold-fill" style="width: 100%;">
+                    REQUEST MORTGAGE ADVISOR CALL
+                  </button>
+                </form>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- =====================================================================
+         VIEW 7: "SELL YOUR PROPERTY" VALUATION PAGE
+         ===================================================================== -->
+    <div id="view-sell" class="page-view">
+      <div class="page-hero-banner">
+        <span class="gold-label">DISCREET BROKERAGE</span>
+        <h1 class="section-title">Sell Your Dubai Luxury Property</h1>
+        <p class="section-subtitle">
+          Representing high-net-worth property owners with institutional confidentiality, international private wealth networks, and bespoke media production.
+        </p>
+      </div>
+
+      <div class="sell-section">
+        <div class="container">
+          <div class="sell-grid">
+            <div>
+              <span class="gold-label">PRIVATE CLIENT SERVICES</span>
+              <h2 class="section-title" style="font-size: 38px;">Why List With Ann Real Estate</h2>
+              <p class="section-subtitle">
+                We combine discreet off-market representation with direct access to sovereign wealth offices and international family funds.
+              </p>
+
+              <div class="sell-pillars">
+                <div class="pillar-item">
+                  <div class="pillar-num">01</div>
+                  <div class="pillar-content">
+                    <h4>Confidential Off-Market Placement</h4>
+                    <p>Protect your asset's privacy with discreet portfolio distribution strictly to vetted high-net-worth buyers.</p>
+                  </div>
+                </div>
+
+                <div class="pillar-item">
+                  <div class="pillar-num">02</div>
+                  <div class="pillar-content">
+                    <h4>8K Architectural Media Production</h4>
+                    <p>Cinema-grade videography, sunset drone cinematography, and editorial features in global publications.</p>
+                  </div>
+                </div>
+
+                <div class="pillar-item">
+                  <div class="pillar-num">03</div>
+                  <div class="pillar-content">
+                    <h4>International Syndication</h4>
+                    <p>Direct exposure to qualified private investors across London, Zurich, Monaco, Riyadh, and Singapore.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Valuation Form -->
+            <div class="sell-form-card">
+              <span class="gold-label">CONFIDENTIAL VALUATION</span>
+              <h3 style="font-size: 28px; margin-bottom: 14px; color: var(--color-charcoal);">Request Property Valuation</h3>
+              <p style="font-size: 13.5px; color: var(--color-warm-gray); margin-bottom: 24px;">Complete the asset details below to receive a certified Dubai Land Department comparative market analysis.</p>
+
+              <form onsubmit="handleSellValuationSubmit(event)" class="luxury-form">
+                <!-- Anti-spam -->
+                <input type="text" name="website_hp" class="hp-field" style="display: none !important; position: absolute; left: -9999px; visibility: hidden; opacity: 0; width: 0; height: 0;" tabindex="-1" autocomplete="off" aria-hidden="true" />
+
+                <div class="form-group">
+                  <label>Full Name</label>
+                  <input type="text" name="full_name" class="form-control" placeholder="Property Owner Name" required />
+                </div>
+
+                <div class="form-group">
+                  <label>Direct Phone / WhatsApp</label>
+                  <input type="tel" name="phone" class="form-control" placeholder="+971 50 000 0000" required />
+                </div>
+
+                <div class="form-group">
+                  <label>Email Address</label>
+                  <input type="email" name="email" class="form-control" placeholder="owner@domain.com" required />
+                </div>
+
+                <div class="form-group">
+                  <label>Community & Development</label>
+                  <input type="text" name="notes" class="form-control" placeholder="e.g. Palm Jumeirah Frond N / Downtown Penthouse" required />
+                </div>
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+                  <div class="form-group">
+                    <label>Property Type</label>
+                    <select name="lead_type" class="form-control">
+                      <option value="Beachfront Villa Valuation">Beachfront Villa</option>
+                      <option value="Sky Penthouse Valuation">Sky Penthouse</option>
+                      <option value="Golf Course Estate Valuation">Golf Course Estate</option>
+                      <option value="Waterfront Apartment Valuation">Waterfront Apartment</option>
+                    </select>
+                  </div>
+
+                  <div class="form-group">
+                    <label>Expected Price (AED)</label>
+                    <input type="number" name="budget_aed" class="form-control" placeholder="e.g. 25000000" />
+                  </div>
+                </div>
+
+                <button type="submit" class="btn btn-charcoal-fill" style="width: 100%; margin-top: 10px;">
+                  SUBMIT CONFIDENTIAL VALUATION
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- =====================================================================
+         VIEW 8: ABOUT PAGE
+         ===================================================================== -->
+    <div id="view-about" class="page-view">
+      <div class="page-hero-banner">
+        <span class="gold-label">ANN REAL ESTATE</span>
+        <h1 class="section-title">The Boutique Private Advisory</h1>
+        <p class="section-subtitle">
+          Established in the Dubai International Financial Centre (DIFC), Ann Real Estate represents a refined standard of property brokerage.
+        </p>
+      </div>
+
+      <section style="padding: 100px 24px; background-color: var(--color-white);">
+        <div class="container" style="max-width: 900px; text-align: center;">
+          <h2 style="font-size: 38px; color: var(--color-charcoal); margin-bottom: 24px;">Our Philosophy</h2>
+          <p style="font-size: 17px; line-height: 2; color: var(--color-warm-gray); margin-bottom: 32px;">
+            We believe luxury real estate in Dubai is not merely a transaction; it is an institutional asset class and a bespoke architectural statement. Our team advises heads of family offices, institutional investors, and discerning international homeowners with meticulous discretion, deep market intelligence, and institutional rigor.
+          </p>
+          <div style="width: 60px; height: 1px; background: var(--color-gold); margin: 0 auto;"></div>
+        </div>
+      </section>
+
+      <!-- Senior Client Directors -->
+      <section style="padding: 100px 24px; background-color: var(--color-off-white); border-top: 1px solid var(--color-light-gray);">
+        <div class="container">
+          <div class="section-header">
+            <span class="gold-label">OUR LEADERSHIP</span>
+            <h2 class="section-title">Senior Client Directors</h2>
+            <p class="section-subtitle">Licensed RERA property advisors dedicated to your private acquisition portfolio.</p>
+          </div>
+
+          <div id="aboutTeamGrid" class="team-grid">
+            <!-- Populated by JS -->
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- =====================================================================
+         VIEW 9: CONTACT PAGE
+         ===================================================================== -->
+    <div id="view-contact" class="page-view">
+      <div class="page-hero-banner">
+        <span class="gold-label">CONNECT WITH US</span>
+        <h1 class="section-title">Private Client Office</h1>
+        <p class="section-subtitle">
+          Headquartered in the heart of the Dubai International Financial Centre (DIFC).
+        </p>
+      </div>
+
+      <section style="padding: 110px 24px; background-color: var(--color-white);">
+        <div class="container">
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: flex-start;">
+            
+            <div>
+              <span class="gold-label">DUBAI HEADQUARTERS</span>
+              <h2 style="font-size: 36px; color: var(--color-charcoal); margin-bottom: 20px;">Gate Precinct 4, Level 6, DIFC</h2>
+              <p style="color: var(--color-warm-gray); font-size: 16px; line-height: 1.8; margin-bottom: 32px;">
+                Our private client suites offer a discreet, sophisticated environment to review off-market portfolios and discuss transaction structuring.
+              </p>
+
+              <div style="display: flex; flex-direction: column; gap: 20px; font-size: 14px;">
+                <div>
+                  <strong style="color: var(--color-charcoal); display: block; text-transform: uppercase; font-size: 11px; letter-spacing: 0.15em; color: var(--color-gold);">Direct Advisory Line</strong>
+                  <span style="font-size: 18px; color: var(--color-charcoal); font-weight: 500;">+971 4 800 2900</span>
+                </div>
+                <div>
+                  <strong style="color: var(--color-charcoal); display: block; text-transform: uppercase; font-size: 11px; letter-spacing: 0.15em; color: var(--color-gold);">VIP Concierge WhatsApp</strong>
+                  <span style="font-size: 18px; color: var(--color-charcoal); font-weight: 500;">+971 50 800 2900</span>
+                </div>
+                <div>
+                  <strong style="color: var(--color-charcoal); display: block; text-transform: uppercase; font-size: 11px; letter-spacing: 0.15em; color: var(--color-gold);">Advisory Desk Hours</strong>
+                  <span>Monday – Saturday: 09:00 – 19:00 GST (Private weekend viewings by appointment)</span>
+                </div>
+              </div>
+            </div>
+
+            <div style="background-color: var(--color-off-white); padding: 44px; border: 1px solid var(--color-light-gray); box-shadow: var(--shadow-subtle);">
+              <span class="gold-label">DIRECT INQUIRY</span>
+              <h3 style="font-size: 26px; color: var(--color-charcoal); margin-bottom: 18px;">Send a Confidential Message</h3>
+
+              <form onsubmit="handleContactPageSubmit(event)" class="luxury-form">
+                <!-- Anti-spam -->
+                <input type="text" name="website_hp" class="hp-field" style="display: none !important; position: absolute; left: -9999px; visibility: hidden; opacity: 0; width: 0; height: 0;" tabindex="-1" autocomplete="off" aria-hidden="true" />
+
+                <div class="form-group">
+                  <label>Full Name</label>
+                  <input type="text" name="full_name" class="form-control" placeholder="Your name" required />
+                </div>
+
+                <div class="form-group">
+                  <label>Phone / WhatsApp</label>
+                  <input type="tel" name="phone" class="form-control" placeholder="+971 50 000 0000" required />
+                </div>
+
+                <div class="form-group">
+                  <label>Email Address</label>
+                  <input type="email" name="email" class="form-control" placeholder="you@domain.com" required />
+                </div>
+
+                <div class="form-group">
+                  <label>Message</label>
+                  <textarea name="notes" class="form-control" rows="4" placeholder="How may our private advisory assist you?"></textarea>
+                </div>
+
+                <button type="submit" class="btn btn-charcoal-fill" style="width: 100%; margin-top: 10px;">
+                  TRANSMIT CONFIDENTIAL INQUIRY
+                </button>
+              </form>
+            </div>
+
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- =====================================================================
+         VIEW 10: PRIVATE ADMIN & AGENT CRM SUITE
+         ===================================================================== -->
+    <div id="view-admin" class="page-view">
+      
+      <!-- State 1: Unauthenticated Admin Login -->
+      <div id="adminLoginView" class="admin-login-screen">
+        <div class="admin-login-card">
+          <div class="brand-logo brand-logo--charcoal" style="margin: 0 auto 20px auto; display: flex;">
+            <span class="logo-title">A N N</span>
+            <span class="logo-divider"></span>
+            <span class="logo-subtitle">REAL ESTATE</span>
+          </div>
+          <span class="gold-label" style="text-align: center; display: block;">RESTRICTED ADVISORY PORTAL</span>
+          <h2 style="font-size: 24px; text-align: center; color: var(--color-charcoal); margin: 6px 0 24px 0;">Private Staff & Broker CRM</h2>
+
+          <div id="loginErrorNotice" style="display: none; background: #FDE8E8; color: #9B1C1C; padding: 12px; font-size: 12px; margin-bottom: 16px; border-left: 3px solid #E02424;"></div>
+
+          <form onsubmit="handleAdminLogin(event)" class="luxury-form">
+            <div class="form-group">
+              <label>Staff Email Address</label>
+              <input type="email" id="loginEmail" class="form-control" placeholder="name@annrealestate.ae" required autocomplete="username" />
+            </div>
+
+            <div class="form-group">
+              <label>Private Security Password</label>
+              <input type="password" id="loginPassword" class="form-control" placeholder="••••••••" required autocomplete="current-password" />
+            </div>
+
+            <button type="submit" class="btn btn-charcoal-fill" style="width: 100%; margin-top: 10px;">
+              AUTHENTICATE & ENTER PORTAL
+            </button>
+          </form>
+
+          <div class="login-demo-chips">
+            <div style="font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--color-warm-gray); margin-bottom: 8px;">QUICK LOGIN PROFILES:</div>
+            <div style="display: flex; flex-wrap: wrap; gap: 4px;">
+              <button type="button" class="chip-btn" onclick="quickFillLogin('admin@annrealestate.ae', 'admin123')">Admin (Master)</button>
+              <button type="button" class="chip-btn" onclick="quickFillLogin('rashid@annrealestate.ae', 'agent123')">Rashid (MD)</button>
+              <button type="button" class="chip-btn" onclick="quickFillLogin('helena@annrealestate.ae', 'agent123')">Helena (Europe)</button>
+              <button type="button" class="chip-btn" onclick="quickFillLogin('kareem@annrealestate.ae', 'agent123')">Kareem (Inst.)</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- State 2: Authenticated CRM Workspace -->
+      <div id="adminWorkspaceView" class="admin-wrapper" style="display: none;">
+        
+        <!-- Sticky Admin Topbar -->
+        <header class="admin-topbar">
+          <div class="admin-topbar-left">
+            <a href="#admin" class="brand-logo brand-logo--white">
+              <span class="logo-title">A N N</span>
+              <span class="logo-divider"></span>
+              <span class="logo-subtitle">REAL ESTATE</span>
+            </a>
+            <span class="admin-badge-role" id="adminUserRoleBadge">ADMINISTRATOR</span>
+            <div id="adminUserGreeting" style="font-size: 13px; color: rgba(255,255,255,0.85); font-weight: 500;">Welcome, Administrator</div>
+          </div>
+
+          <div class="admin-topbar-right">
+            <!-- 60s Sync Status -->
+            <div style="font-size: 11px; color: rgba(255,255,255,0.6); display: flex; align-items: center; gap: 6px;">
+              <span style="width: 7px; height: 7px; background-color: #2ECC71; border-radius: 50%; display: inline-block;"></span>
+              <span>Syncing every 60s</span>
+            </div>
+
+            <!-- Bell Icon with Count & Dropdown -->
+            <div class="bell-container">
+              <button type="button" class="bell-btn" id="adminBellBtn" onclick="toggleAdminNotificationsMenu()" aria-label="Lead Notifications">
+                <span>🔔</span>
+                <span class="bell-badge" id="adminBellBadge" style="display: none;">0</span>
+              </button>
+              
+              <div id="adminNotificationsMenu" class="notifications-menu">
+                <h4>Recent Incoming Inquiries</h4>
+                <div id="adminNotificationsList">
+                  <div style="font-size: 12px; color: var(--color-warm-gray); text-align: center; padding: 12px;">No new unread leads</div>
+                </div>
+              </div>
+            </div>
+
+            <button type="button" class="btn btn-hero-outline" style="padding: 8px 16px; font-size: 10px;" onclick="handleAdminLogout()">
+              SIGN OUT
+            </button>
+          </div>
+        </header>
+
+        <!-- Sub-Navigation Tabs -->
+        <nav class="admin-subnav" aria-label="Admin Sections">
+          <div class="admin-nav-item active" data-tab="dashboard" onclick="switchAdminTab('dashboard')">Dashboard & Metrics</div>
+          <div class="admin-nav-item" data-tab="pipeline" onclick="switchAdminTab('pipeline')">Pipeline Kanban Board</div>
+          <div class="admin-nav-item" data-tab="leads" onclick="switchAdminTab('leads')">Leads Directory & Excel</div>
+          <div class="admin-nav-item" data-tab="viewings" onclick="switchAdminTab('viewings')">Viewings Schedule</div>
+          <div class="admin-nav-item" data-tab="leaderboard" onclick="switchAdminTab('leaderboard')">Advisor Leaderboard</div>
+          <div class="admin-nav-item" data-tab="stale" onclick="switchAdminTab('stale')">Stale Leads (3+ Days)</div>
+          <div class="admin-nav-item" id="navItemInventory" data-tab="inventory" onclick="switchAdminTab('inventory')">Inventory (Properties & Off-Plan)</div>
+        </nav>
+
+        <div class="admin-container">
+
+          <!-- 1. DASHBOARD TAB -->
+          <div id="tab-dashboard" class="admin-tab-pane active">
+            <!-- Metric Cards -->
+            <div class="admin-metric-grid">
+              <div class="admin-metric-card">
+                <div class="admin-metric-title">New Leads Today</div>
+                <div class="admin-metric-val" id="metricLeadsToday">0</div>
+                <div class="admin-metric-sub">Direct portal submissions</div>
+              </div>
+
+              <div class="admin-metric-card">
+                <div class="admin-metric-title">Active Deal Pipeline Value</div>
+                <div class="admin-metric-val" id="metricTotalPipelineVal">AED 0</div>
+                <div class="admin-metric-sub">Across open buyer opportunities</div>
+              </div>
+
+              <div class="admin-metric-card">
+                <div class="admin-metric-title">Viewings This Week</div>
+                <div class="admin-metric-val" id="metricViewingsWeek">0</div>
+                <div class="admin-metric-sub">Scheduled buyer property inspections</div>
+              </div>
+
+              <div class="admin-metric-card">
+                <div class="admin-metric-title">Sales Closed This Month</div>
+                <div class="admin-metric-val" id="metricSalesMonth">AED 0</div>
+                <div class="admin-metric-sub" id="metricDealsCount">0 Won transactions</div>
+              </div>
+
+              <div class="admin-metric-card">
+                <div class="admin-metric-title">Agency Commission (2%)</div>
+                <div class="admin-metric-val" id="metricCommissionMonth" style="color: var(--color-gold);">AED 0</div>
+                <div class="admin-metric-sub">Realized brokerage commission</div>
+              </div>
+            </div>
+
+            <!-- Charts Section -->
+            <div style="display: grid; grid-template-columns: 1.2fr 1fr; gap: 24px; margin-bottom: 32px;">
+              <div class="admin-chart-card">
+                <span class="gold-label">PIPELINE DISTRIBUTION</span>
+                <h3 style="font-size: 20px; color: var(--color-charcoal); margin-bottom: 20px;">Leads by Stage</h3>
+                <div id="chartStageBars">
+                  <!-- Populated by JS -->
+                </div>
+              </div>
+
+              <div class="admin-chart-card">
+                <span class="gold-label">LEAD SCORING QUALITY</span>
+                <h3 style="font-size: 20px; color: var(--color-charcoal); margin-bottom: 20px;">Hot, Warm & Cold Breakdown</h3>
+                <div id="chartQualityBars">
+                  <!-- Populated by JS -->
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 2. PIPELINE KANBAN BOARD TAB -->
+          <div id="tab-pipeline" class="admin-tab-pane">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+              <div>
+                <span class="gold-label">INTERACTIVE CRM WORKFLOW</span>
+                <h2 style="font-size: 26px; color: var(--color-charcoal); margin: 0;">Drag & Drop Deal Pipeline</h2>
+              </div>
+              <div style="font-size: 12px; color: var(--color-warm-gray);">
+                Drag buyer cards across stages. Dragging to <strong>Won</strong> automatically triggers the 2% commission & property closure ledger.
+              </div>
+            </div>
+
+            <div class="kanban-board" id="kanbanBoard">
+              <!-- Rendered dynamically by renderKanbanBoard() -->
+            </div>
+          </div>
+
+          <!-- 3. LEADS DIRECTORY & EXCEL EXPORT TAB -->
+          <div id="tab-leads" class="admin-tab-pane">
+            <div style="background-color: var(--color-white); padding: 24px; border: 1px solid var(--color-light-gray); margin-bottom: 20px;">
+              <div style="display: grid; grid-template-columns: 1.5fr repeat(3, 1fr) auto; gap: 14px; align-items: flex-end;">
+                <div class="form-group">
+                  <label>Search Leads</label>
+                  <input type="text" id="adminLeadSearch" class="form-control" placeholder="Search buyer name, email, phone..." oninput="handleAdminLeadsFilterChange()" />
+                </div>
+
+                <div class="form-group">
+                  <label>Stage</label>
+                  <select id="adminLeadStageFilter" class="form-control" onchange="handleAdminLeadsFilterChange()">
+                    <option value="all">All Stages</option>
+                    <option value="New">New</option>
+                    <option value="Contacted">Contacted</option>
+                    <option value="Viewing">Viewing</option>
+                    <option value="Offer">Offer</option>
+                    <option value="Won">Won</option>
+                    <option value="Lost">Lost</option>
+                  </select>
+                </div>
+
+                <div class="form-group">
+                  <label>Rating Quality</label>
+                  <select id="adminLeadRatingFilter" class="form-control" onchange="handleAdminLeadsFilterChange()">
+                    <option value="all">All Ratings</option>
+                    <option value="HOT">HOT (70 - 100)</option>
+                    <option value="WARM">WARM (40 - 69)</option>
+                    <option value="COLD">COLD (< 40)</option>
+                  </select>
+                </div>
+
+                <div class="form-group" id="filterAgentWrapper">
+                  <label>Assigned Advisor</label>
+                  <select id="adminLeadAgentFilter" class="form-control" onchange="handleAdminLeadsFilterChange()">
+                    <option value="all">All Advisors</option>
+                    <option value="1">Rashid Al-Falasi</option>
+                    <option value="2">Helena Vance</option>
+                    <option value="3">Kareem Mansoor</option>
+                  </select>
+                </div>
+
+                <button type="button" class="btn btn-gold-fill" style="height: 44px; display: inline-flex; align-items: center; gap: 8px;" onclick="exportLeadsToExcel()">
+                  <span>📥</span>
+                  <span>DOWNLOAD TO EXCEL</span>
+                </button>
+              </div>
+            </div>
+
+            <div class="admin-table-container">
+              <table class="admin-table" id="adminLeadsTable">
+                <thead>
+                  <tr>
+                    <th>Score / Rating</th>
+                    <th>Buyer Name</th>
+                    <th>Direct Contact</th>
+                    <th>Source Form</th>
+                    <th>Target Budget</th>
+                    <th>Stage</th>
+                    <th>Assigned Advisor</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody id="adminLeadsTableBody">
+                  <!-- Populated by JS -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- 4. VIEWINGS SCHEDULE TAB -->
+          <div id="tab-viewings" class="admin-tab-pane">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+              <div>
+                <span class="gold-label">CALENDAR OF INSPECTIONS</span>
+                <h2 style="font-size: 26px; color: var(--color-charcoal); margin: 0;">Buyer Property Viewings</h2>
+              </div>
+              <button type="button" class="btn btn-charcoal-fill" onclick="openScheduleViewingModal()">
+                + BOOK NEW VIEWING
+              </button>
+            </div>
+
+            <div class="admin-table-container">
+              <table class="admin-table">
+                <thead>
+                  <tr>
+                    <th>Scheduled Date & Time</th>
+                    <th>Property Title</th>
+                    <th>Buyer Name</th>
+                    <th>Assigned Advisor</th>
+                    <th>Status</th>
+                    <th>Notes</th>
+                  </tr>
+                </thead>
+                <tbody id="adminViewingsTableBody">
+                  <!-- Populated by JS -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- 5. LEADERBOARD TAB -->
+          <div id="tab-leaderboard" class="admin-tab-pane">
+            <div style="margin-bottom: 24px;">
+              <span class="gold-label">PERFORMANCE BENCHMARK</span>
+              <h2 style="font-size: 26px; color: var(--color-charcoal); margin: 4px 0 6px 0;">Advisor Monthly Sales Leaderboard</h2>
+              <p style="font-size: 13px; color: var(--color-warm-gray);">Monthly Sales Quota: <strong>AED 25,000,000</strong> per Senior Client Director</p>
+            </div>
+
+            <div class="leaderboard-grid" id="leaderboardGrid">
+              <!-- Populated by JS -->
+            </div>
+          </div>
+
+          <!-- 6. STALE LEADS TAB (3+ DAYS INACTIVE) -->
+          <div id="tab-stale" class="admin-tab-pane">
+            <div class="stale-warning-banner">
+              <strong>⚠️ Follow-Up Alert:</strong> The following leads have had no logged interaction or notes for 3 or more days. Re-engage immediately to maintain buyer momentum.
+            </div>
+
+            <div class="admin-table-container">
+              <table class="admin-table">
+                <thead>
+                  <tr>
+                    <th>Rating</th>
+                    <th>Buyer Name</th>
+                    <th>Contact Details</th>
+                    <th>Days Inactive</th>
+                    <th>Assigned Advisor</th>
+                    <th>Immediate Engagement</th>
+                  </tr>
+                </thead>
+                <tbody id="adminStaleLeadsTableBody">
+                  <!-- Populated by JS -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- 7. INVENTORY CRUD TAB (PROPERTIES & PROJECTS) -->
+          <div id="tab-inventory" class="admin-tab-pane">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px;">
+              <div>
+                <span class="gold-label">PORTFOLIO ASSET MANAGEMENT</span>
+                <h2 style="font-size: 26px; color: var(--color-charcoal); margin: 0;">Properties & Off-Plan Developments</h2>
+              </div>
+              <div style="display: flex; gap: 12px;">
+                <button type="button" class="btn btn-charcoal-fill" onclick="openPropertyAdminModal()">
+                  + ADD READY PROPERTY
+                </button>
+                <button type="button" class="btn btn-gold-fill" onclick="openProjectAdminModal()">
+                  + ADD OFF-PLAN PROJECT
+                </button>
+              </div>
+            </div>
+
+            <h3 style="font-size: 20px; color: var(--color-charcoal); margin: 24px 0 12px 0;">Ready Homes Inventory</h3>
+            <div class="admin-table-container" style="margin-bottom: 40px;">
+              <table class="admin-table">
+                <thead>
+                  <tr>
+                    <th>Image</th>
+                    <th>Title</th>
+                    <th>Community</th>
+                    <th>Price (AED)</th>
+                    <th>Type</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody id="adminPropertiesTableBody">
+                  <!-- Populated by JS -->
+                </tbody>
+              </table>
+            </div>
+
+            <h3 style="font-size: 20px; color: var(--color-charcoal); margin: 24px 0 12px 0;">Off-Plan Projects Inventory</h3>
+            <div class="admin-table-container">
+              <table class="admin-table">
+                <thead>
+                  <tr>
+                    <th>Image</th>
+                    <th>Project Name</th>
+                    <th>Community</th>
+                    <th>Starting Price</th>
+                    <th>Handover</th>
+                    <th>Payment Plan</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody id="adminProjectsTableBody">
+                  <!-- Populated by JS -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- =======================================================================
+       GLOBAL FLOATING ACTION WIDGETS (ON EVERY PAGE)
+       ======================================================================= -->
+  <aside class="floating-widgets" aria-label="Quick Contact Actions">
+    <!-- 1. Floating WhatsApp Button -->
+    <a href="https://wa.me/97148002900?text=Hello%20Ann%20Real%20Estate,%20I%20am%20interested%20in%20Dubai%20luxury%20properties." target="_blank" rel="noopener noreferrer" class="floating-whatsapp-btn" aria-label="Chat on WhatsApp">
+      <span>💬</span>
+      <span>WhatsApp Advisor</span>
+    </a>
+
+    <!-- 2. Floating "Call Me Back" Button -->
+    <button type="button" class="floating-callback-btn" onclick="openCallbackModal()" aria-label="Request Instant Call Me Back">
+      <span class="callback-dot"></span>
+      <span>Call Me Back</span>
+    </button>
+  </aside>
+
+  <!-- =======================================================================
+       FOOTER
+       ======================================================================= -->
+  <footer class="footer" id="footer" role="contentinfo">
+    <div class="footer-top">
+      
+      <!-- Brand & Philosophy -->
+      <div class="footer-brand">
+        <!-- Logo: White version for dark backgrounds -->
+        <div class="brand-logo brand-logo--white">
+          <span class="logo-title">A N N</span>
+          <span class="logo-divider"></span>
+          <span class="logo-subtitle">REAL ESTATE</span>
+        </div>
+        <p>
+          Ann Real Estate is a boutique luxury brokerage and advisory specializing in prime ready homes and institutional off-plan investments in the Emirate of Dubai.
+        </p>
+      </div>
+
+      <!-- Navigation Column -->
+      <div>
+        <h4 class="footer-title">Portfolio</h4>
+        <ul class="footer-links">
+          <li><a href="#properties" onclick="navigateTo('#properties')">Ready Residences</a></li>
+          <li><a href="#off-plan" onclick="navigateTo('#off-plan')">Off-Plan Developments</a></li>
+          <li><a href="#properties" onclick="propFilters.community = 'Palm Jumeirah'; navigateTo('#properties');">Palm Jumeirah Villas</a></li>
+          <li><a href="#properties" onclick="propFilters.community = 'Downtown Dubai'; navigateTo('#properties');">Downtown Penthouses</a></li>
+          <li><a href="#properties" onclick="propFilters.community = 'Dubai Hills Estate'; navigateTo('#properties');">Dubai Hills Estates</a></li>
+        </ul>
+      </div>
+
+      <!-- Financial & Services Column -->
+      <div>
+        <h4 class="footer-title">Advisory</h4>
+        <ul class="footer-links">
+          <li><a href="#calculator" onclick="navigateTo('#calculator')">Mortgage Calculator</a></li>
+          <li><a href="#sell" onclick="navigateTo('#sell')">Sell Your Property</a></li>
+          <li><a href="#about" onclick="navigateTo('#about')">About Our Leadership</a></li>
+          <li><a href="#contact" onclick="navigateTo('#contact')">Contact DIFC Office</a></li>
+          <li><a href="#admin" onclick="openAdminCrmLogin(event)" style="color: var(--color-gold);">Staff & Admin CRM</a></li>
+          <li><a href="#" onclick="openRegisterModal(); return false;">Private Client Office</a></li>
+        </ul>
+      </div>
+
+      <!-- Contact Column -->
+      <div>
+        <h4 class="footer-title">Dubai Headquarters</h4>
+        <div class="footer-contact-item">Gate Precinct 4, Level 6, DIFC<br>Dubai, United Arab Emirates</div>
+        <div class="footer-contact-item">Telephone: +971 4 800 2900</div>
+        <div class="footer-contact-item">Advisory Hours: Mon – Sat (09:00 – 19:00 GST)</div>
+        <div style="margin-top: 20px;">
+          <button type="button" class="btn btn-hero-outline" style="padding: 10px 20px; font-size: 9.5px;" onclick="openCallbackModal()">
+            REQUEST RAPID CALLBACK
+          </button>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Bottom Legal Bar -->
+    <div class="footer-bottom">
+      <div>
+        © 2026 Ann Real Estate FZ-LLC. All rights reserved.
+      </div>
+      <div>
+        Prices in United Arab Emirates Dirham (AED). Curated architectural visualizations are for artistic illustration. Fictional luxury portfolio with no unauthorized developer affiliations.
+      </div>
+    </div>
+  </footer>
+
+  <!-- =======================================================================
+       MODAL 1: THANK YOU & VIP CONFIRMATION (SHOWN ON ALL FORM SUBMISSIONS)
+       ======================================================================= -->
+  <div id="thankYouModal" class="modal-backdrop" role="dialog" aria-modal="true" aria-label="Thank You Confirmation">
+    <div class="modal-window">
+      <button type="button" class="modal-close-btn" onclick="closeThankYouModal()" aria-label="Close dialog">&times;</button>
+      
+      <div class="thank-you-modal-content">
+        <div class="brand-logo brand-logo--charcoal" style="margin: 0 auto 20px auto; display: flex;">
+          <span class="logo-title">A N N</span>
+          <span class="logo-divider"></span>
+          <span class="logo-subtitle">REAL ESTATE</span>
+        </div>
+
+        <div class="thank-you-icon">✦</div>
+        <span class="gold-label">INQUIRY CONFIRMED</span>
+        <h2 style="font-size: 26px; color: var(--color-charcoal); margin: 8px 0 14px 0; line-height: 1.4;">
+          Thank you. An Ann Real Estate advisor will contact you within 24 hours.
+        </h2>
+        
+        <p style="color: var(--color-warm-gray); font-size: 14.5px; max-width: 480px; margin: 0 auto;">
+          Your <strong id="thankYouLeadType" style="color: var(--color-charcoal);">request</strong> has been logged directly into our private client database.
+        </p>
+
+        <div class="thank-you-ref-badge">
+          <div style="font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--color-warm-gray); margin-bottom: 2px;">YOUR VIP ACCESS CODE</div>
+          <div id="thankYouVipCode" style="color: var(--color-gold); font-size: 30px; font-weight: 500;">ANN-8821</div>
+        </div>
+
+        <div style="font-size: 13px; color: var(--color-charcoal); margin-bottom: 24px;">
+          ✦ Direct Advisory Hotline: <strong>+971 4 800 2900</strong><br>
+          ✦ WhatsApp Desk: <strong>+971 50 800 2900</strong>
+        </div>
+
+        <button type="button" class="btn btn-gold-fill" onclick="closeThankYouModal()">
+          CONTINUE BROWSING
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- =======================================================================
+       MODAL 2: "CALL ME BACK" INSTANT CALLBACK MODAL
+       ======================================================================= -->
+  <div id="callbackModal" class="modal-backdrop" role="dialog" aria-modal="true" aria-label="Request Instant Call Me Back">
+    <div class="modal-window">
+      <button type="button" class="modal-close-btn" onclick="closeCallbackModal()" aria-label="Close dialog">&times;</button>
+      
+      <div style="text-align: center; margin-bottom: 24px;">
+        <span class="gold-label">PRIORITY RESPONSE</span>
+        <h2 style="font-size: 28px; color: var(--color-charcoal); margin-bottom: 6px;">Request a Direct Call Back</h2>
+        <p id="callbackAgentNote" style="color: var(--color-warm-gray); font-size: 13.5px;">
+          Our senior private wealth advisor will phone you within 15 minutes.
+        </p>
+      </div>
+
+      <form onsubmit="handleCallbackModalSubmit(event)" class="luxury-form">
+        <!-- Anti-spam -->
+        <input type="text" name="website_hp" class="hp-field" style="display: none !important; position: absolute; left: -9999px; visibility: hidden; opacity: 0; width: 0; height: 0;" tabindex="-1" autocomplete="off" aria-hidden="true" />
+
+        <div class="form-group">
+          <label>Your Name</label>
+          <input type="text" name="full_name" class="form-control" placeholder="Full Name" required />
+        </div>
+
+        <div class="form-group">
+          <label>Direct Telephone / WhatsApp Number</label>
+          <input type="tel" name="phone" class="form-control" placeholder="+971 50 123 4567" required />
+        </div>
+
+        <div class="form-group">
+          <label>Preferred Contact Time</label>
+          <select name="timeline" class="form-control">
+            <option value="Immediately (Within 15 Mins)">Immediately (Within 15 Mins)</option>
+            <option value="This Morning (09:00 - 12:00 GST)">This Morning (09:00 – 12:00 GST)</option>
+            <option value="This Afternoon (12:00 - 17:00 GST)">This Afternoon (12:00 – 17:00 GST)</option>
+            <option value="This Evening (17:00 - 20:00 GST)">This Evening (17:00 – 20:00 GST)</option>
+          </select>
+        </div>
+
+        <button type="submit" class="btn btn-gold-fill" style="width: 100%; margin-top: 10px;">
+          REQUEST IMMEDIATE CALL
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- =======================================================================
+       MODAL 3: VIP REGISTER INTEREST MODAL
+       ======================================================================= -->
+  <div id="registerModal" class="modal-backdrop" role="dialog" aria-modal="true" aria-label="Register VIP Interest">
+    <div class="modal-window">
+      <button type="button" class="modal-close-btn" onclick="closeRegisterModal()" aria-label="Close dialog">&times;</button>
+      
+      <div style="text-align: center; margin-bottom: 24px;">
+        <div class="brand-logo brand-logo--charcoal" style="margin: 0 auto 16px auto; display: flex;">
+          <span class="logo-title">A N N</span>
+          <span class="logo-divider"></span>
+          <span class="logo-subtitle">REAL ESTATE</span>
+        </div>
+        <span class="gold-label">PRIVATE CLIENT ALLOCATION</span>
+        <h2 style="font-size: 28px; color: var(--color-charcoal); margin-bottom: 6px;">Register Your Interest</h2>
+        <p style="color: var(--color-warm-gray); font-size: 13.5px;">
+          Access confidential floorplans, pre-launch off-plan allocations, and private property tours.
+        </p>
+      </div>
+
+      <div id="registerModalError" style="display: none; background: #FDE8E8; color: #9B1C1C; padding: 12px; font-size: 13px; margin-bottom: 16px; border-left: 3px solid #E02424;"></div>
+
+      <form id="vipRegisterForm" onsubmit="handleRegisterInterestSubmit(event)" class="luxury-form">
+        <!-- Anti-spam -->
+        <input type="text" name="website_hp" class="hp-field" style="display: none !important; position: absolute; left: -9999px; visibility: hidden; opacity: 0; width: 0; height: 0;" tabindex="-1" autocomplete="off" aria-hidden="true" />
+
+        <div class="form-group">
+          <label>Full Name</label>
+          <input type="text" name="full_name" class="form-control" placeholder="Lord / Mr. / Ms. Name" required />
+        </div>
+
+        <div class="form-group">
+          <label>Phone / WhatsApp</label>
+          <input type="tel" name="phone" class="form-control" placeholder="+971 50 000 0000" required />
+        </div>
+
+        <div class="form-group">
+          <label>Email Address</label>
+          <input type="email" name="email" class="form-control" placeholder="client@luxuryportfolio.com" required />
+        </div>
+
+        <div class="form-group">
+          <label>Preferred Community</label>
+          <select name="notes" class="form-control">
+            <option value="General Luxury Portfolio">General Luxury Portfolio</option>
+            <option value="Palm Jumeirah Waterfront">Palm Jumeirah Waterfront</option>
+            <option value="Downtown Dubai Penthouses">Downtown Dubai Penthouses</option>
+            <option value="Dubai Marina Yacht Enclave">Dubai Marina Yacht Enclave</option>
+            <option value="Business Bay Canal Residences">Business Bay Canal Residences</option>
+            <option value="Dubai Hills Estate Fairways">Dubai Hills Estate Fairways</option>
+            <option value="JVC High-Yield Properties">JVC High-Yield Properties</option>
+          </select>
+        </div>
+
+        <button type="submit" id="btnRegisterSubmit" class="btn btn-charcoal-fill" style="width: 100%; margin-top: 10px;">
+          CONFIRM VIP REGISTRATION
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- =======================================================================
+       ADMIN MODAL 1: LEAD DOSSIER & ACTIONS
+       ======================================================================= -->
+  <div id="leadDetailModal" class="modal-backdrop" role="dialog" aria-modal="true" aria-label="Lead Dossier">
+    <div class="modal-window modal-window--crm">
+      <button type="button" class="modal-close-btn" onclick="closeLeadDetailModal()" aria-label="Close dialog">&times;</button>
+      
+      <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 24px; border-bottom: 1px solid var(--color-light-gray); padding-bottom: 16px;">
+        <div>
+          <span class="gold-label">BUYER DOSSIER</span>
+          <h2 id="leadModalName" style="font-size: 28px; color: var(--color-charcoal); margin: 4px 0 0 0;">Buyer Name</h2>
+          <div style="font-size: 12px; color: var(--color-warm-gray); margin-top: 4px;">ID: #<span id="leadModalId"></span> • Created: <span id="leadModalCreatedAt"></span></div>
+        </div>
+
+        <div style="text-align: right;">
+          <div id="leadModalRatingBadge" class="lead-rating-badge badge-hot" style="font-size: 12px; padding: 6px 14px;">HOT (85/100)</div>
+          <div style="font-size: 11px; color: var(--color-warm-gray); margin-top: 4px;">Lead Score: <strong id="leadModalScore">85</strong> / 100</div>
+        </div>
+      </div>
+
+      <!-- Quick Action Buttons: Call & WhatsApp -->
+      <div style="display: flex; gap: 12px; margin-bottom: 28px; flex-wrap: wrap;">
+        <a id="leadModalCallLink" href="#" class="btn btn-charcoal-fill" style="display: inline-flex; align-items: center; gap: 8px;">
+          <span>📞</span>
+          <span>CALL DIRECTLY</span>
+        </a>
+        <a id="leadModalWhatsAppLink" href="#" target="_blank" rel="noopener noreferrer" class="btn" style="background-color: #25D366; color: #fff; display: inline-flex; align-items: center; gap: 8px;">
+          <span>💬</span>
+          <span>WHATSAPP BUYER</span>
+        </a>
+        <button type="button" class="btn btn-charcoal-outline" onclick="openWonDealModalForCurrentLead()">
+          🏆 MARK AS WON DEAL
+        </button>
+      </div>
+
+      <!-- Lead Attributes Grid -->
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; background-color: var(--color-off-white); padding: 20px; border: 1px solid var(--color-light-gray); margin-bottom: 24px;">
+        <div>
+          <div style="font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--color-warm-gray);">Phone / WhatsApp</div>
+          <div id="leadModalPhone" style="font-size: 14px; font-weight: 600; color: var(--color-charcoal); margin-top: 2px;"></div>
+        </div>
+        <div>
+          <div style="font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--color-warm-gray);">Email Address</div>
+          <div id="leadModalEmail" style="font-size: 14px; font-weight: 500; color: var(--color-charcoal); margin-top: 2px;"></div>
+        </div>
+        <div>
+          <div style="font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--color-warm-gray);">Target Budget</div>
+          <div id="leadModalBudget" style="font-size: 14px; font-weight: 600; color: var(--color-gold); margin-top: 2px;"></div>
+        </div>
+        <div>
+          <div style="font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--color-warm-gray);">Acquisition Timeline</div>
+          <div id="leadModalTimeline" style="font-size: 13px; color: var(--color-charcoal); margin-top: 2px;"></div>
+        </div>
+        <div>
+          <div style="font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--color-warm-gray);">Source Form</div>
+          <div id="leadModalSource" style="font-size: 13px; color: var(--color-charcoal); margin-top: 2px;"></div>
+        </div>
+        <div>
+          <div style="font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--color-warm-gray);">Specific Property / Project</div>
+          <div id="leadModalInterest" style="font-size: 13px; color: var(--color-charcoal); margin-top: 2px;"></div>
+        </div>
+      </div>
+
+      <!-- Stage & Advisor Assignment Controls -->
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 28px;">
+        <div class="form-group">
+          <label>Lead Stage (Drag or Update)</label>
+          <select id="leadModalStageSelect" class="form-control" onchange="handleLeadModalStageChange(this.value)">
+            <option value="New">New</option>
+            <option value="Contacted">Contacted</option>
+            <option value="Viewing">Viewing</option>
+            <option value="Offer">Offer</option>
+            <option value="Won">Won (Closes Deal)</option>
+            <option value="Lost">Lost</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label>Assigned Private Advisor</label>
+          <select id="leadModalAgentSelect" class="form-control" onchange="handleLeadModalAgentChange(this.value)">
+            <option value="1">Rashid Al-Falasi (Managing Director)</option>
+            <option value="2">Helena Vance (Europe Desk)</option>
+            <option value="3">Kareem Mansoor (Institutional Desk)</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Notes Feed & Add Note Form -->
+      <div style="margin-bottom: 24px;">
+        <div style="font-size: 12px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--color-charcoal); margin-bottom: 10px;">Interaction History & Activity Notes</div>
+        
+        <div id="leadModalNotesFeed" class="notes-feed">
+          <!-- Populated by JS -->
+        </div>
+
+        <form onsubmit="handleLeadModalAddNote(event)" style="display: flex; gap: 10px;">
+          <input type="text" id="leadModalNewNoteText" class="form-control" placeholder="Add confidential interaction note..." required />
+          <button type="submit" class="btn btn-charcoal-fill" style="white-space: nowrap;">
+            ADD NOTE
+          </button>
+        </form>
+      </div>
+
+      <!-- Quick Book Viewing -->
+      <div style="border-top: 1px solid var(--color-light-gray); padding-top: 20px;">
+        <div style="font-size: 12px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--color-charcoal); margin-bottom: 12px;">Schedule Property Viewing For This Buyer</div>
+        <form onsubmit="handleLeadModalBookViewing(event)" style="display: grid; grid-template-columns: 1fr 1fr auto; gap: 12px; align-items: flex-end;">
+          <div class="form-group">
+            <label>Select Property</label>
+            <select id="leadModalViewingPropSelect" class="form-control" required>
+              <!-- Populated by JS -->
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Viewing Date & Time</label>
+            <input type="datetime-local" id="leadModalViewingDateTime" class="form-control" required />
+          </div>
+          <button type="submit" class="btn btn-gold-fill" style="height: 44px;">
+            SCHEDULE VIEWING
+          </button>
+        </form>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- =======================================================================
+       ADMIN MODAL 2: "WON" DEAL & 2% COMMISSION CALCULATOR MODAL
+       ======================================================================= -->
+  <div id="wonDealModal" class="modal-backdrop" role="dialog" aria-modal="true" aria-label="Mark Deal Won">
+    <div class="modal-window" style="max-width: 580px;">
+      <button type="button" class="modal-close-btn" onclick="closeWonDealModal()" aria-label="Close dialog">&times;</button>
+      
+      <div style="text-align: center; margin-bottom: 24px;">
+        <span class="gold-label">TRANSACTION CLOSURE</span>
+        <h2 style="font-size: 28px; color: var(--color-charcoal); margin: 6px 0;">Mark Deal as Won</h2>
+        <p style="font-size: 13.5px; color: var(--color-warm-gray);">
+          Enter the final agreed purchase price in AED. The system will record the transaction, compute 2% brokerage commission, and update the property ledger to "Sold".
+        </p>
+      </div>
+
+      <form onsubmit="handleConfirmWonDeal(event)" class="luxury-form">
+        <input type="hidden" id="wonLeadId" />
+
+        <div class="form-group">
+          <label>Buyer Name</label>
+          <input type="text" id="wonBuyerName" class="form-control" readonly style="background: var(--color-off-white);" />
+        </div>
+
+        <div class="form-group">
+          <label>Associated Property</label>
+          <select id="wonPropertySelect" class="form-control" required>
+            <!-- Populated dynamically -->
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label>Final Agreed Sale Price (AED)</label>
+          <input type="number" id="wonSalePrice" class="form-control" placeholder="e.g. 25000000" min="500000" step="10000" required oninput="calculateWonCommissionLive()" />
+        </div>
+
+        <!-- Live 2% Commission Calculation -->
+        <div class="won-commission-box">
+          <div style="font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--color-warm-gray);">STATUTORY AGENCY COMMISSION (2%)</div>
+          <div id="wonCommissionAmount" class="won-commission-amount">AED 0</div>
+          <div style="font-size: 11px; color: var(--color-warm-gray);">Recorded directly into the monthly advisor leaderboard</div>
+        </div>
+
+        <div class="form-group">
+          <label>Closing Notes</label>
+          <textarea id="wonNotes" class="form-control" rows="2" placeholder="SPA signed, deposit received at Dubai Land Department trustee office..."></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-gold-fill" style="width: 100%; margin-top: 10px;">
+          CONFIRM TRANSACTION & MARK PROPERTY SOLD
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- =======================================================================
+       ADMIN MODAL 3: PROPERTY INVENTORY CRUD MODAL
+       ======================================================================= -->
+  <div id="propertyAdminModal" class="modal-backdrop" role="dialog" aria-modal="true" aria-label="Property Form">
+    <div class="modal-window modal-window--crm">
+      <button type="button" class="modal-close-btn" onclick="closePropertyAdminModal()" aria-label="Close dialog">&times;</button>
+      
+      <div style="margin-bottom: 24px;">
+        <span class="gold-label">INVENTORY MANAGEMENT</span>
+        <h2 id="propertyAdminModalTitle" style="font-size: 26px; color: var(--color-charcoal); margin: 4px 0 0 0;">Add Ready Property</h2>
+      </div>
+
+      <form onsubmit="handlePropertyAdminSubmit(event)" class="luxury-form">
+        <input type="hidden" id="adminPropId" />
+
+        <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 16px;">
+          <div class="form-group">
+            <label>Property Title</label>
+            <input type="text" id="adminPropTitle" class="form-control" placeholder="e.g. Palm Signature Frond Villa" required />
+          </div>
+
+          <div class="form-group">
+            <label>URL Slug</label>
+            <input type="text" id="adminPropSlug" class="form-control" placeholder="e.g. palm-signature-frond-villa" required />
+          </div>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;">
+          <div class="form-group">
+            <label>Price (AED)</label>
+            <input type="number" id="adminPropPrice" class="form-control" placeholder="e.g. 38500000" required />
+          </div>
+
+          <div class="form-group">
+            <label>Community</label>
+            <select id="adminPropCommunity" class="form-control" required>
+              <option value="Palm Jumeirah">Palm Jumeirah</option>
+              <option value="Downtown Dubai">Downtown Dubai</option>
+              <option value="Dubai Marina">Dubai Marina</option>
+              <option value="Business Bay">Business Bay</option>
+              <option value="Dubai Hills Estate">Dubai Hills Estate</option>
+              <option value="Jumeirah Village Circle">JVC</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label>Property Type</label>
+            <select id="adminPropType" class="form-control" required>
+              <option value="Villa">Villa / Trophy Mansion</option>
+              <option value="Penthouse">Sky Penthouse</option>
+              <option value="Apartment">Luxury Apartment</option>
+              <option value="Loft">Designer Loft</option>
+            </select>
+          </div>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px;">
+          <div class="form-group">
+            <label>Bedrooms</label>
+            <input type="number" id="adminPropBedrooms" class="form-control" min="1" max="15" value="4" required />
+          </div>
+          <div class="form-group">
+            <label>Bathrooms</label>
+            <input type="number" id="adminPropBathrooms" class="form-control" min="1" max="20" value="5" required />
+          </div>
+          <div class="form-group">
+            <label>Sq.Ft. Built-Up</label>
+            <input type="number" id="adminPropSqft" class="form-control" min="500" value="6500" required />
+          </div>
+          <div class="form-group">
+            <label>Inventory Status</label>
+            <select id="adminPropStatus" class="form-control">
+              <option value="Ready for Occupancy">Ready for Occupancy</option>
+              <option value="Under Offer">Under Offer</option>
+              <option value="Sold">Sold</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Image URL</label>
+          <input type="text" id="adminPropImageUrl" class="form-control" placeholder="https://... or assets/images/..." required />
+        </div>
+
+        <div class="form-group">
+          <label>Description Narrative</label>
+          <textarea id="adminPropDesc" class="form-control" rows="3" placeholder="Architectural description of the property..."></textarea>
+        </div>
+
+        <div class="form-group">
+          <label>Features & Highlights (Comma separated)</label>
+          <input type="text" id="adminPropFeatures" class="form-control" placeholder="Private Beach, Infinity Pool, Smart Home Automation, Valet" />
+        </div>
+
+        <button type="submit" class="btn btn-charcoal-fill" style="width: 100%; margin-top: 10px;">
+          SAVE PROPERTY
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- =======================================================================
+       ADMIN MODAL 4: OFF-PLAN PROJECT CRUD MODAL
+       ======================================================================= -->
+  <div id="projectAdminModal" class="modal-backdrop" role="dialog" aria-modal="true" aria-label="Off-Plan Project Form">
+    <div class="modal-window modal-window--crm">
+      <button type="button" class="modal-close-btn" onclick="closeProjectAdminModal()" aria-label="Close dialog">&times;</button>
+      
+      <div style="margin-bottom: 24px;">
+        <span class="gold-label">OFF-PLAN ASSET MANAGEMENT</span>
+        <h2 id="projectAdminModalTitle" style="font-size: 26px; color: var(--color-charcoal); margin: 4px 0 0 0;">Add Off-Plan Project</h2>
+      </div>
+
+      <form onsubmit="handleProjectAdminSubmit(event)" class="luxury-form">
+        <input type="hidden" id="adminProjId" />
+
+        <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 16px;">
+          <div class="form-group">
+            <label>Project Name</label>
+            <input type="text" id="adminProjTitle" class="form-control" placeholder="e.g. Marina Horizon Towers" required />
+          </div>
+
+          <div class="form-group">
+            <label>URL Slug</label>
+            <input type="text" id="adminProjSlug" class="form-control" placeholder="e.g. marina-horizon-towers" required />
+          </div>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;">
+          <div class="form-group">
+            <label>Starting Price (AED)</label>
+            <input type="number" id="adminProjPrice" class="form-control" placeholder="e.g. 3200000" required />
+          </div>
+
+          <div class="form-group">
+            <label>Community</label>
+            <select id="adminProjCommunity" class="form-control" required>
+              <option value="Dubai Marina">Dubai Marina</option>
+              <option value="Palm Jumeirah">Palm Jumeirah</option>
+              <option value="Downtown Dubai">Downtown Dubai</option>
+              <option value="Business Bay">Business Bay</option>
+              <option value="Dubai Hills Estate">Dubai Hills Estate</option>
+              <option value="Jumeirah Village Circle">JVC</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label>Estimated Handover</label>
+            <input type="text" id="adminProjHandover" class="form-control" placeholder="e.g. Q4 2027" required />
+          </div>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1.5fr 1fr; gap: 16px;">
+          <div class="form-group">
+            <label>Payment Plan</label>
+            <input type="text" id="adminProjPaymentPlan" class="form-control" placeholder="e.g. 60/40 (20% Booking, 40% Construction, 40% Handover)" required />
+          </div>
+
+          <div class="form-group">
+            <label>Projected Net ROI</label>
+            <input type="text" id="adminProjRoi" class="form-control" placeholder="e.g. 8.5% Net Projected" value="8.5% Net Projected" required />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Image URL</label>
+          <input type="text" id="adminProjImageUrl" class="form-control" placeholder="https://..." required />
+        </div>
+
+        <div class="form-group">
+          <label>Project Vision & Narrative</label>
+          <textarea id="adminProjDesc" class="form-control" rows="3" placeholder="Master development vision, architecture, and luxury amenities..."></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-charcoal-fill" style="width: 100%; margin-top: 10px;">
+          SAVE OFF-PLAN PROJECT
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- =======================================================================
+       ADMIN MODAL 5: BOOK NEW VIEWING MODAL
+       ======================================================================= -->
+  <div id="viewingBookingModal" class="modal-backdrop" role="dialog" aria-modal="true" aria-label="Book Viewing">
+    <div class="modal-window" style="max-width: 580px;">
+      <button type="button" class="modal-close-btn" onclick="closeScheduleViewingModal()" aria-label="Close dialog">&times;</button>
+      
+      <div style="margin-bottom: 20px;">
+        <span class="gold-label">INSPECTION CALENDAR</span>
+        <h2 style="font-size: 26px; color: var(--color-charcoal); margin: 4px 0 0 0;">Schedule Buyer Viewing</h2>
+      </div>
+
+      <form onsubmit="handleScheduleViewingSubmit(event)" class="luxury-form">
+        <div class="form-group">
+          <label>Associated Buyer Lead</label>
+          <select id="viewingModalLeadSelect" class="form-control" required>
+            <!-- Populated by JS -->
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label>Target Residence</label>
+          <select id="viewingModalPropertySelect" class="form-control" required>
+            <!-- Populated by JS -->
+          </select>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+          <div class="form-group">
+            <label>Viewing Date & Time</label>
+            <input type="datetime-local" id="viewingModalDateTime" class="form-control" required />
+          </div>
+
+          <div class="form-group">
+            <label>Assigned Advisor</label>
+            <select id="viewingModalAgentSelect" class="form-control">
+              <option value="1">Rashid Al-Falasi</option>
+              <option value="2">Helena Vance</option>
+              <option value="3">Kareem Mansoor</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Inspection Notes</label>
+          <textarea id="viewingModalNotes" class="form-control" rows="2" placeholder="Private limousine transfer requested, meeting at DIFC concierge desk..."></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-gold-fill" style="width: 100%; margin-top: 10px;">
+          CONFIRM VIEWING RESERVATION
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Toast Notification Container -->
+  <div id="toastNotice" class="toast-notice"></div>
+
+  <!-- Application Logic -->
+  <script src="js/app.js?v=2.2"></script>
+</body>
+</html>

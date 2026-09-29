@@ -1,0 +1,33 @@
+# ==============================================================================
+# ANN REAL ESTATE DUBAI - SEARCH ENGINE DIRECTIVES (ROBOTS.TXT)
+# Ensures public luxury catalog is easily discoverable on Google while 
+# strictly blocking all private staff portals, admin routes, and CRM APIs.
+# ==============================================================================
+
+User-agent: *
+
+# Allow Public Real Estate Search Discovery
+Allow: /
+Allow: /#properties
+Allow: /#off-plan
+Allow: /#calculator
+Allow: /#sell
+Allow: /#about
+Allow: /#contact
+Allow: /assets/
+Allow: /styles/
+Allow: /js/
+
+# Strictly Disallow Private Staff & Broker CRM from Google & Web Crawlers
+Disallow: /admin
+Disallow: /admin/
+Disallow: /#admin
+Disallow: /#crm
+Disallow: /api/admin/
+Disallow: /api/auth/
+Disallow: /db/
+Disallow: /.env
+Disallow: /.git
+
+# XML Sitemap Location
+Sitemap: http://localhost:3000/sitemap.xml

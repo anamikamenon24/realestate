@@ -1,0 +1,22 @@
+{
+  "name": "ann-real-estate-dubai",
+  "version": "1.0.0",
+  "description": "Luxury property sales website for Ann Real Estate, Dubai",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "keywords": [
+    "dubai",
+    "luxury-real-estate",
+    "off-plan",
+    "ready-homes"
+  ],
+  "author": "Ann Real Estate",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^18.0.4",
+    "pg": "^8.23.0"
+  }
+}
