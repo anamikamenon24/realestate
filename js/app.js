@@ -1342,8 +1342,25 @@ let draggedLeadId = null;
 let currentDossierLeadId = null;
 let allAdminLeads = [];
 
+// XSS Prevention: HTML Entity Encoder
+function escapeHTML(str) {
+  if (str === null || str === undefined) return '';
+  return String(str).replace(/[&<>'"]/g, tag => ({
+    '&': '&amp;',
+    '<': '&lt;',
+    '>': '&gt;',
+    "'": '&#39;',
+    '"': '&quot;'
+  }[tag] || tag));
+}
+
 function getAuthHeaders() {
   const headers = { 'Content-Type': 'application/json' };
+  const token = localStorage.getItem('ann_auth_token');
+  if (token) {
+    headers['Authorization'] = `Bearer ${token}`;
+    headers['x-auth-token'] = token;
+  }
   if (currentAdminUser) {
     headers['x-user-id'] = currentAdminUser.id;
     headers['x-user-role'] = currentAdminUser.role;
@@ -1430,6 +1447,9 @@ async function handleAdminLogin(event) {
         if (data.success) {
           userObj = data.user;
           authenticated = true;
+          if (data.token) {
+            localStorage.setItem('ann_auth_token', data.token);
+          }
         } else {
           if (errorEl) {
             errorEl.innerText = data.message || 'Invalid staff credentials.';
@@ -1446,7 +1466,7 @@ async function handleAdminLogin(event) {
   if (!authenticated) {
     const staffList = (window.ANN_SEED_DATA && window.ANN_SEED_DATA.staffLogins) || [];
     const staffMember = staffList.find(s => s.email.toLowerCase() === email.toLowerCase());
-    if (staffMember && (password === staffMember.password || password === 'admin123' || password === 'agent123')) {
+    if (staffMember && (password === 'admin123' || password === 'agent123')) {
       userObj = {
         id: staffMember.id,
         full_name: staffMember.full_name,
@@ -1455,6 +1475,7 @@ async function handleAdminLogin(event) {
         avatar_url: staffMember.avatar_url
       };
       authenticated = true;
+      localStorage.setItem('ann_auth_token', 'mock_static_session_' + Date.now());
     }
   }
 
@@ -1474,6 +1495,7 @@ async function handleAdminLogin(event) {
 function handleAdminLogout() {
   currentAdminUser = null;
   localStorage.removeItem('ann_admin_user');
+  localStorage.removeItem('ann_auth_token');
   if (notificationIntervalId) {
     clearInterval(notificationIntervalId);
     notificationIntervalId = null;
@@ -1570,12 +1592,12 @@ async function fetchAdminNotifications() {
       list.innerHTML = `<div style="font-size: 12px; color: var(--color-warm-gray); text-align: center; padding: 12px;">No incoming inquiries</div>`;
     } else {
       list.innerHTML = data.recent.map(item => `
-        <div class="notif-item" onclick="openLeadDetailModal(${item.id}); toggleAdminNotificationsMenu(false);">
-          <div class="notif-name">${item.full_name}</div>
+        <div class="notif-item" onclick="openLeadDetailModal(${parseInt(item.id, 10)}); toggleAdminNotificationsMenu(false);">
+          <div class="notif-name">${escapeHTML(item.full_name)}</div>
           <div class="notif-meta">
-            <span>${item.source_form || item.lead_type || 'Website Inquiry'}</span> • 
+            <span>${escapeHTML(item.source_form || item.lead_type || 'Website Inquiry')}</span> • 
             <span style="color: var(--color-gold);">${formatAED(item.budget_aed || 0)}</span> • 
-            <strong>${item.rating || 'WARM'}</strong>
+            <strong>${escapeHTML(item.rating || 'WARM')}</strong>
           </div>
         </div>
       `).join('');
@@ -1792,28 +1814,29 @@ async function loadAdminPipeline() {
 function createKanbanCardHTML(lead) {
   const badgeClass = lead.rating === 'HOT' ? 'badge-hot' : lead.rating === 'WARM' ? 'badge-warm' : 'badge-cold';
   const cleanPhone = (lead.phone || '').replace(/[\s\-\+\(\)]/g, '');
+  const safeId = parseInt(lead.id, 10);
   return `
-    <div class="kanban-card" draggable="true" ondragstart="handleKanbanDragStart(event, ${lead.id})">
+    <div class="kanban-card" draggable="true" ondragstart="handleKanbanDragStart(event, ${safeId})">
       <div class="lead-header-row">
-        <span class="lead-name" onclick="openLeadDetailModal(${lead.id})">${lead.full_name}</span>
-        <span class="lead-rating-badge ${badgeClass}">${lead.rating} ${lead.score || 0}</span>
+        <span class="lead-name" onclick="openLeadDetailModal(${safeId})">${escapeHTML(lead.full_name)}</span>
+        <span class="lead-rating-badge ${badgeClass}">${escapeHTML(lead.rating)} ${parseInt(lead.score, 10) || 0}</span>
       </div>
 
       <div class="lead-budget">${formatAED(lead.budget_aed || 0)}</div>
 
       <div class="lead-subtext">
-        <div>${lead.specific_interest || lead.source_form || 'Direct Web Inquiry'}</div>
-        <div style="font-size: 10px; color: var(--color-warm-gray); margin-top: 2px;">Advisor: <strong>${lead.agent_name || 'Unassigned'}</strong></div>
+        <div>${escapeHTML(lead.specific_interest || lead.source_form || 'Direct Web Inquiry')}</div>
+        <div style="font-size: 10px; color: var(--color-warm-gray); margin-top: 2px;">Advisor: <strong>${escapeHTML(lead.agent_name || 'Unassigned')}</strong></div>
       </div>
 
       <div class="lead-actions-row">
         <a href="tel:${cleanPhone}" class="btn-icon-link" title="Call directly">
           📞 Call
         </a>
-        <a href="https://wa.me/${cleanPhone}?text=Hello%20${encodeURIComponent(lead.full_name)},%20this%20is%20Ann%20Real%20Estate." target="_blank" rel="noopener noreferrer" class="btn-icon-link" style="color: #25D366;" title="WhatsApp buyer">
+        <a href="https://wa.me/${cleanPhone}?text=Hello%20${encodeURIComponent(lead.full_name || '')},%20this%20is%20Ann%20Real%20Estate." target="_blank" rel="noopener noreferrer" class="btn-icon-link" style="color: #25D366;" title="WhatsApp buyer">
           💬 WhatsApp
         </a>
-        <button type="button" class="btn-icon-link" onclick="openLeadDetailModal(${lead.id})" title="View complete dossier">
+        <button type="button" class="btn-icon-link" onclick="openLeadDetailModal(${safeId})" title="View complete dossier">
           Dossier
         </button>
       </div>
@@ -1941,23 +1964,24 @@ async function loadAdminLeads() {
   tbody.innerHTML = allAdminLeads.map(l => {
     const badgeClass = l.rating === 'HOT' ? 'badge-hot' : l.rating === 'WARM' ? 'badge-warm' : 'badge-cold';
     const cleanPhone = (l.phone || '').replace(/[\s\-\+\(\)]/g, '');
+    const safeId = parseInt(l.id, 10);
     return `
       <tr>
-        <td><span class="lead-rating-badge ${badgeClass}">${l.rating} (${l.score || 0})</span></td>
-        <td><strong>${l.full_name}</strong></td>
+        <td><span class="lead-rating-badge ${badgeClass}">${escapeHTML(l.rating)} (${parseInt(l.score, 10) || 0})</span></td>
+        <td><strong>${escapeHTML(l.full_name)}</strong></td>
         <td>
-          <div>${l.phone}</div>
-          <div style="font-size: 11px; color: var(--color-warm-gray);">${l.email}</div>
+          <div>${escapeHTML(l.phone)}</div>
+          <div style="font-size: 11px; color: var(--color-warm-gray);">${escapeHTML(l.email)}</div>
         </td>
-        <td><span style="font-size: 11px; background: var(--color-off-white); padding: 3px 8px; border: 1px solid var(--color-light-gray);">${l.source_form || 'Website Inquiry'}</span></td>
+        <td><span style="font-size: 11px; background: var(--color-off-white); padding: 3px 8px; border: 1px solid var(--color-light-gray);">${escapeHTML(l.source_form || 'Website Inquiry')}</span></td>
         <td><strong style="color: var(--color-gold);">${formatAED(l.budget_aed || 0)}</strong></td>
-        <td><span style="font-weight: 500;">${l.stage || l.status || 'New'}</span></td>
-        <td>${l.agent_name || 'Unassigned'}</td>
+        <td><span style="font-weight: 500;">${escapeHTML(l.stage || l.status || 'New')}</span></td>
+        <td>${escapeHTML(l.agent_name || 'Unassigned')}</td>
         <td>
           <div style="display: flex; gap: 6px;">
             <a href="tel:${cleanPhone}" class="btn-icon-link" title="Call">📞</a>
-            <a href="https://wa.me/${cleanPhone}?text=Hello%20${encodeURIComponent(l.full_name)},%20this%20is%20Ann%20Real%20Estate." target="_blank" rel="noopener noreferrer" class="btn-icon-link" style="color: #25D366;" title="WhatsApp">💬</a>
-            <button type="button" class="btn-icon-link" onclick="openLeadDetailModal(${l.id})">Dossier</button>
+            <a href="https://wa.me/${cleanPhone}?text=Hello%20${encodeURIComponent(l.full_name || '')},%20this%20is%20Ann%20Real%20Estate." target="_blank" rel="noopener noreferrer" class="btn-icon-link" style="color: #25D366;" title="WhatsApp">💬</a>
+            <button type="button" class="btn-icon-link" onclick="openLeadDetailModal(${safeId})">Dossier</button>
           </div>
         </td>
       </tr>
@@ -1993,8 +2017,11 @@ function exportLeadsToExcel() {
 
   const escapeCSV = (val) => {
     if (val === null || val === undefined) return '""';
-    const s = String(val).replace(/"/g, '""');
-    return `"${s}"`;
+    let s = String(val);
+    if (/^[=+@\-\t\r]/.test(s)) {
+      s = "'" + s;
+    }
+    return `"${s.replace(/"/g, '""')}"`;
   };
 
   const rows = allAdminLeads.map(l => [
@@ -2124,10 +2151,10 @@ function renderLeadNotesFeed(notes) {
   feed.innerHTML = notes.map(n => `
     <div class="note-bubble">
       <div class="note-meta">
-        <strong>${n.agent_name || 'Staff Advisor'}</strong>
+        <strong>${escapeHTML(n.agent_name || 'Staff Advisor')}</strong>
         <span>${new Date(n.created_at).toLocaleString()}</span>
       </div>
-      <div class="note-text">${n.note_text}</div>
+      <div class="note-text">${escapeHTML(n.note_text)}</div>
     </div>
   `).join('');
 }

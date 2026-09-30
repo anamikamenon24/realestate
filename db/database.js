@@ -4,18 +4,40 @@
  */
 
 require('dotenv').config();
+const crypto = require('crypto');
 const { Pool } = require('pg');
 const seed = require('./seedData');
+
+function hashPassword(password, salt = crypto.randomBytes(16).toString('hex')) {
+  const hash = crypto.scryptSync(password, salt, 64).toString('hex');
+  return `${salt}:${hash}`;
+}
+
+function verifyPassword(password, storedHash) {
+  if (!password || !storedHash) return false;
+  if (storedHash.includes(':')) {
+    const parts = storedHash.split(':');
+    if (parts.length !== 2) return false;
+    const [salt, originalHash] = parts;
+    const hash = crypto.scryptSync(password, salt, 64).toString('hex');
+    if (hash.length !== originalHash.length) return false;
+    return crypto.timingSafeEqual(Buffer.from(hash), Buffer.from(originalHash));
+  }
+  return password === storedHash;
+}
 
 let pool = null;
 let isPostgres = false;
 
-// In-Memory state store
+// In-Memory state store with cryptographically hashed passwords
 const memoryStore = {
   developers: JSON.parse(JSON.stringify(seed.developers)),
   offPlanProjects: JSON.parse(JSON.stringify(seed.offPlanProjects)),
   properties: JSON.parse(JSON.stringify(seed.properties)),
-  staffLogins: JSON.parse(JSON.stringify(seed.staffLogins)),
+  staffLogins: JSON.parse(JSON.stringify(seed.staffLogins)).map(s => ({
+    ...s,
+    password: hashPassword(s.password)
+  })),
   buyerLeads: JSON.parse(JSON.stringify(seed.buyerLeads)),
   viewings: JSON.parse(JSON.stringify(seed.viewings)),
   completedSales: JSON.parse(JSON.stringify(seed.completedSales)),
@@ -242,18 +264,22 @@ async function initDatabase() {
 const db = {
   isPostgres: () => isPostgres,
 
-  // Auth: authenticate user by email and password
+  // Auth: authenticate user by email and password using cryptographic verification
   async authenticateUser(email, password) {
     if (!email || !password) return null;
     const cleanEmail = email.toLowerCase().trim();
 
     if (isPostgres) {
-      const res = await pool.query('SELECT id, full_name, email, role, phone, avatar_url FROM staff_logins WHERE LOWER(email) = $1 AND password = $2', [cleanEmail, password]);
-      return res.rows[0] || null;
+      const res = await pool.query('SELECT id, full_name, email, password, role, phone, avatar_url FROM staff_logins WHERE LOWER(email) = $1', [cleanEmail]);
+      if (res.rows.length === 0) return null;
+      const user = res.rows[0];
+      if (!verifyPassword(password, user.password)) return null;
+      const { password: _, ...safeUser } = user;
+      return safeUser;
     }
 
-    const user = memoryStore.staffLogins.find(u => u.email.toLowerCase() === cleanEmail && u.password === password);
-    if (!user) return null;
+    const user = memoryStore.staffLogins.find(u => u.email.toLowerCase() === cleanEmail);
+    if (!user || !verifyPassword(password, user.password)) return null;
     const { password: _, ...safeUser } = user;
     return safeUser;
   },
@@ -421,8 +447,11 @@ const db = {
     return newLead;
   },
 
-  // Admin Leads Management with Agent Isolation
+  // Admin Leads Management with Strict Access Control & Agent Isolation
   async getLeads(filters = {}, user = null) {
+    if (!user) {
+      return [];
+    }
     let leads = [];
 
     if (isPostgres) {
@@ -438,7 +467,7 @@ const db = {
       let idx = 1;
 
       // Agent isolation: Agents ONLY see their own leads
-      if (user && user.role === 'agent') {
+      if (user.role === 'agent') {
         query += ` AND l.assigned_agent_id = $${idx++}`;
         params.push(user.id);
       }
@@ -466,8 +495,9 @@ const db = {
       leads = res.rows;
     } else {
       leads = memoryStore.buyerLeads.filter(l => {
+        if (!user) return false;
         // Agent isolation
-        if (user && user.role === 'agent' && l.assigned_agent_id !== user.id) {
+        if (user.role === 'agent' && l.assigned_agent_id !== user.id) {
           return false;
         }
         if (filters.stage && filters.stage !== 'all' && l.status.toLowerCase() !== filters.stage.toLowerCase()) {
@@ -603,26 +633,36 @@ const db = {
     const commission = Math.round(price * 0.02); // 2% commission
 
     if (isPostgres) {
-      // 1. Update lead stage to 'Won'
-      await pool.query('UPDATE buyer_leads SET status = \'Won\', updated_at = NOW() WHERE id = $1', [leadId]);
+      const client = await pool.connect();
+      try {
+        await client.query('BEGIN');
+        // 1. Update lead stage to 'Won'
+        await client.query('UPDATE buyer_leads SET status = \'Won\', updated_at = NOW() WHERE id = $1', [leadId]);
 
-      // 2. Mark property as 'Sold' if propertyId provided
-      if (propertyId) {
-        await pool.query('UPDATE properties SET status = \'Sold\' WHERE id = $1', [propertyId]);
+        // 2. Mark property as 'Sold' if propertyId provided
+        if (propertyId) {
+          await client.query('UPDATE properties SET status = \'Sold\' WHERE id = $1', [propertyId]);
+        }
+
+        // 3. Record Completed Sale
+        const res = await client.query(`
+          INSERT INTO completed_sales (property_id, lead_id, agent_id, sale_price_aed, commission_aed, sale_date, notes)
+          VALUES ($1, $2, $3, $4, $5, CURRENT_DATE, $6)
+          RETURNING *
+        `, [propertyId || null, leadId, agentId || 1, price, commission, notesText || 'Deal marked as Won']);
+
+        await client.query('COMMIT');
+        return {
+          sale: res.rows[0],
+          commission_aed: commission,
+          sale_price_aed: price
+        };
+      } catch (err) {
+        await client.query('ROLLBACK');
+        throw err;
+      } finally {
+        client.release();
       }
-
-      // 3. Record Completed Sale
-      const res = await pool.query(`
-        INSERT INTO completed_sales (property_id, lead_id, agent_id, sale_price_aed, commission_aed, sale_date, notes)
-        VALUES ($1, $2, $3, $4, $5, CURRENT_DATE, $6)
-        RETURNING *
-      `, [propertyId || null, leadId, agentId || 1, price, commission, notesText || 'Deal marked as Won']);
-
-      return {
-        sale: res.rows[0],
-        commission_aed: commission,
-        sale_price_aed: price
-      };
     }
 
     const lead = memoryStore.buyerLeads.find(l => l.id === parseInt(leadId, 10));

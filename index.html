@@ -65,6 +65,8 @@
   <link rel="stylesheet" href="styles/main.css?v=2.2">
 </head>
 <body>
+  <!-- Accessibility Skip Link -->
+  <a href="#mainApp" class="skip-link" style="position: absolute; left: -9999px; top: 12px; z-index: 9999; background: #11161B; color: #D4AF37; padding: 10px 18px; font-weight: 600; text-decoration: none; border: 1px solid #D4AF37;" onfocus="this.style.left='12px'" onblur="this.style.left='-9999px'">Skip to main content</a>
 
   <!-- =======================================================================
        TOP NAVIGATION BAR
@@ -201,7 +203,7 @@
             </div>
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)) 160px; gap: 16px; align-items: flex-end;">
               <div class="form-group">
-                <label>Community</label>
+                <label for="homeSearchCommunity">Community</label>
                 <select id="homeSearchCommunity" class="form-control">
                   <option value="all">All Dubai Communities</option>
                   <option value="Palm Jumeirah">Palm Jumeirah</option>
@@ -214,7 +216,7 @@
               </div>
 
               <div class="form-group">
-                <label>Property Type</label>
+                <label for="homeSearchType">Property Type</label>
                 <select id="homeSearchType" class="form-control">
                   <option value="all">All Property Types</option>
                   <option value="Villa">Beachfront & Golf Villas</option>
@@ -225,7 +227,7 @@
               </div>
 
               <div class="form-group">
-                <label>Budget (AED)</label>
+                <label for="homeSearchBudget">Budget (AED)</label>
                 <select id="homeSearchBudget" class="form-control">
                   <option value="all">Any Price Range</option>
                   <option value="under-5m">Under AED 5,000,000</option>
@@ -406,27 +408,27 @@
             <!-- Honeypot -->
             <input type="text" name="website_hp" class="hp-field" style="display: none !important; position: absolute; left: -9999px; visibility: hidden; opacity: 0; width: 0; height: 0;" tabindex="-1" autocomplete="off" aria-hidden="true" />
 
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px;">
               <div class="form-group">
-                <label>Your Full Name</label>
-                <input type="text" name="full_name" class="form-control" placeholder="Lord / Mr. / Ms. Full Name" required />
+                <label for="regFullName">Your Full Name</label>
+                <input type="text" id="regFullName" name="full_name" class="form-control" placeholder="Lord / Mr. / Ms. Full Name" required />
               </div>
 
               <div class="form-group">
-                <label>Direct Telephone / WhatsApp</label>
-                <input type="tel" name="phone" class="form-control" placeholder="+971 50 000 0000" required />
+                <label for="regPhone">Direct Telephone / WhatsApp</label>
+                <input type="tel" id="regPhone" name="phone" class="form-control" placeholder="+971 50 000 0000" required />
               </div>
             </div>
 
             <div class="form-group">
-              <label>Email Address</label>
-              <input type="email" name="email" class="form-control" placeholder="investor@domain.com" required />
+              <label for="regEmail">Email Address</label>
+              <input type="email" id="regEmail" name="email" class="form-control" placeholder="investor@domain.com" required />
             </div>
 
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px;">
               <div class="form-group">
-                <label>Target Investment Allocation (AED)</label>
-                <select name="budget_aed" class="form-control">
+                <label for="regBudget">Target Investment Allocation (AED)</label>
+                <select id="regBudget" name="budget_aed" class="form-control">
                   <option value="5000000">AED 5,000,000 – 15,000,000</option>
                   <option value="15000000">AED 15,000,000 – 30,000,000</option>
                   <option value="30000000">AED 30,000,000 – 60,000,000</option>
@@ -435,8 +437,8 @@
               </div>
 
               <div class="form-group">
-                <label>Acquisition Horizon</label>
-                <select name="timeline" class="form-control">
+                <label for="regTimeline">Acquisition Horizon</label>
+                <select id="regTimeline" name="timeline" class="form-control">
                   <option value="Immediate Ready Acquisition">Immediate Ready Purchase</option>
                   <option value="Off-Plan Payment Plan">Off-Plan Milestone Plan</option>
                   <option value="Exploring Dubai Market">Exploring Market Options</option>
@@ -459,7 +461,7 @@
     <div id="view-properties" class="page-view">
       <div class="page-hero-banner">
         <span class="gold-label">ANN REAL ESTATE PORTFOLIO</span>
-        <h1 class="section-title">Ready Residences in Dubai</h1>
+        <h2 class="section-title">Ready Residences in Dubai</h2>
         <p class="section-subtitle">
           Curated collection of 15 move-in ready homes across Dubai Marina, Downtown, Palm Jumeirah, Business Bay, Dubai Hills, and JVC. Prices in AED.
         </p>
@@ -561,7 +563,7 @@
     <div id="view-off-plan" class="page-view">
       <div class="page-hero-banner">
         <span class="gold-label">SIGNATURE DEVELOPMENTS</span>
-        <h1 class="section-title">Dubai Off-Plan Investment Portfolio</h1>
+        <h2 class="section-title">Dubai Off-Plan Investment Portfolio</h2>
         <p class="section-subtitle">
           Acquire off-plan residences with milestone payment structures, capital appreciation potential, and statutory investor protections.
         </p>
@@ -591,7 +593,7 @@
     <div id="view-calculator" class="page-view">
       <div class="page-hero-banner">
         <span class="gold-label">FINANCIAL ADVISORY</span>
-        <h1 class="section-title">Dubai Mortgage & Cost Calculator</h1>
+        <h2 class="section-title">Dubai Mortgage & Cost Calculator</h2>
         <p class="section-subtitle">
           Model your monthly commitment in AED alongside official Dubai Land Department (DLD) and administrative transfer fees.
         </p>
@@ -758,7 +760,7 @@
     <div id="view-sell" class="page-view">
       <div class="page-hero-banner">
         <span class="gold-label">DISCREET BROKERAGE</span>
-        <h1 class="section-title">Sell Your Dubai Luxury Property</h1>
+        <h2 class="section-title">Sell Your Dubai Luxury Property</h2>
         <p class="section-subtitle">
           Representing high-net-worth property owners with institutional confidentiality, international private wealth networks, and bespoke media production.
         </p>
@@ -812,29 +814,29 @@
                 <input type="text" name="website_hp" class="hp-field" style="display: none !important; position: absolute; left: -9999px; visibility: hidden; opacity: 0; width: 0; height: 0;" tabindex="-1" autocomplete="off" aria-hidden="true" />
 
                 <div class="form-group">
-                  <label>Full Name</label>
-                  <input type="text" name="full_name" class="form-control" placeholder="Property Owner Name" required />
+                  <label for="sellFullName">Full Name</label>
+                  <input type="text" id="sellFullName" name="full_name" class="form-control" placeholder="Property Owner Name" required />
                 </div>
 
                 <div class="form-group">
-                  <label>Direct Phone / WhatsApp</label>
-                  <input type="tel" name="phone" class="form-control" placeholder="+971 50 000 0000" required />
+                  <label for="sellPhone">Direct Phone / WhatsApp</label>
+                  <input type="tel" id="sellPhone" name="phone" class="form-control" placeholder="+971 50 000 0000" required />
                 </div>
 
                 <div class="form-group">
-                  <label>Email Address</label>
-                  <input type="email" name="email" class="form-control" placeholder="owner@domain.com" required />
+                  <label for="sellEmail">Email Address</label>
+                  <input type="email" id="sellEmail" name="email" class="form-control" placeholder="owner@domain.com" required />
                 </div>
 
                 <div class="form-group">
-                  <label>Community & Development</label>
-                  <input type="text" name="notes" class="form-control" placeholder="e.g. Palm Jumeirah Frond N / Downtown Penthouse" required />
+                  <label for="sellNotes">Community & Development</label>
+                  <input type="text" id="sellNotes" name="notes" class="form-control" placeholder="e.g. Palm Jumeirah Frond N / Downtown Penthouse" required />
                 </div>
 
-                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px;">
                   <div class="form-group">
-                    <label>Property Type</label>
-                    <select name="lead_type" class="form-control">
+                    <label for="sellLeadType">Property Type</label>
+                    <select id="sellLeadType" name="lead_type" class="form-control">
                       <option value="Beachfront Villa Valuation">Beachfront Villa</option>
                       <option value="Sky Penthouse Valuation">Sky Penthouse</option>
                       <option value="Golf Course Estate Valuation">Golf Course Estate</option>
@@ -843,8 +845,8 @@
                   </div>
 
                   <div class="form-group">
-                    <label>Expected Price (AED)</label>
-                    <input type="number" name="budget_aed" class="form-control" placeholder="e.g. 25000000" />
+                    <label for="sellBudget">Expected Price (AED)</label>
+                    <input type="number" id="sellBudget" name="budget_aed" class="form-control" placeholder="e.g. 25000000" />
                   </div>
                 </div>
 
@@ -864,7 +866,7 @@
     <div id="view-about" class="page-view">
       <div class="page-hero-banner">
         <span class="gold-label">ANN REAL ESTATE</span>
-        <h1 class="section-title">The Boutique Private Advisory</h1>
+        <h2 class="section-title">The Boutique Private Advisory</h2>
         <p class="section-subtitle">
           Established in the Dubai International Financial Centre (DIFC), Ann Real Estate represents a refined standard of property brokerage.
         </p>
@@ -902,7 +904,7 @@
     <div id="view-contact" class="page-view">
       <div class="page-hero-banner">
         <span class="gold-label">CONNECT WITH US</span>
-        <h1 class="section-title">Private Client Office</h1>
+        <h2 class="section-title">Private Client Office</h2>
         <p class="section-subtitle">
           Headquartered in the heart of the Dubai International Financial Centre (DIFC).
         </p>
@@ -994,12 +996,12 @@
 
           <form onsubmit="handleAdminLogin(event)" class="luxury-form">
             <div class="form-group">
-              <label>Staff Email Address</label>
+              <label for="loginEmail">Staff Email Address</label>
               <input type="email" id="loginEmail" class="form-control" placeholder="name@annrealestate.ae" required autocomplete="username" />
             </div>
 
             <div class="form-group">
-              <label>Private Security Password</label>
+              <label for="loginPassword">Private Security Password</label>
               <input type="password" id="loginPassword" class="form-control" placeholder="••••••••" required autocomplete="current-password" />
             </div>
 

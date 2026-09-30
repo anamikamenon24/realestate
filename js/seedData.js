@@ -403,7 +403,6 @@
       id: 1,
       full_name: "Anamika Menon",
       email: "admin@annrealestate.ae",
-      password: "admin123",
       role: "admin",
       phone: "+971 4 800 2900",
       avatar_url: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=400&q=80"
@@ -412,7 +411,6 @@
       id: 2,
       full_name: "Rashid Al-Falasi",
       email: "rashid@annrealestate.ae",
-      password: "agent123",
       role: "agent",
       phone: "+971 4 800 2901",
       avatar_url: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=400&q=80"
@@ -421,7 +419,6 @@
       id: 3,
       full_name: "Helena Vance-Montgomery",
       email: "helena@annrealestate.ae",
-      password: "agent123",
       role: "agent",
       phone: "+971 4 800 2902",
       avatar_url: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=400&q=80"
@@ -430,7 +427,6 @@
       id: 4,
       full_name: "Kareem Mansoor",
       email: "kareem@annrealestate.ae",
-      password: "agent123",
       role: "agent",
       phone: "+971 4 800 2903",
       avatar_url: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=400&q=80"
