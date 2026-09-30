@@ -2,81 +2,76 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <!-- Core Public Sections -->
   <url>
-    <loc>http://localhost:3000/</loc>
+    <loc>https://anamikamenon24.github.io/realestate/</loc>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>http://localhost:3000/#properties</loc>
+    <loc>https://anamikamenon24.github.io/realestate/#properties</loc>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>http://localhost:3000/#off-plan</loc>
+    <loc>https://anamikamenon24.github.io/realestate/#off-plan</loc>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>http://localhost:3000/#calculator</loc>
+    <loc>https://anamikamenon24.github.io/realestate/#calculator</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>http://localhost:3000/#sell</loc>
+    <loc>https://anamikamenon24.github.io/realestate/#sell</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>http://localhost:3000/#about</loc>
+    <loc>https://anamikamenon24.github.io/realestate/#about</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>http://localhost:3000/#contact</loc>
+    <loc>https://anamikamenon24.github.io/realestate/#contact</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <!-- Featured Ready Trophy Residences -->
   <url>
-    <loc>http://localhost:3000/#property/palm-signature-villa</loc>
+    <loc>https://anamikamenon24.github.io/realestate/#property/palm-frond-seraphina-villa</loc>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.85</priority>
   </url>
   <url>
-    <loc>http://localhost:3000/#property/downtown-burj-penthouse</loc>
+    <loc>https://anamikamenon24.github.io/realestate/#property/burj-crown-sky-residence</loc>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.85</priority>
   </url>
   <url>
-    <loc>http://localhost:3000/#property/marina-waterfront-mansion</loc>
+    <loc>https://anamikamenon24.github.io/realestate/#property/azure-marina-penthouse-duplex</loc>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.85</priority>
   </url>
   <url>
-    <loc>http://localhost:3000/#property/dubai-hills-fairway-manor</loc>
+    <loc>https://anamikamenon24.github.io/realestate/#property/park-ridge-emerald-mansion</loc>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>http://localhost:3000/#property/business-bay-canal-duplex</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.85</priority>
   </url>
 
   <!-- Featured Off-Plan Architectural Launches -->
   <url>
-    <loc>http://localhost:3000/#project/sky-penthouse-tower</loc>
+    <loc>https://anamikamenon24.github.io/realestate/#project/aura-marina-bay-tower</loc>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
-    <loc>http://localhost:3000/#project/marina-horizon-residences</loc>
+    <loc>https://anamikamenon24.github.io/realestate/#project/the-luminary-downtown</loc>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
-    <loc>http://localhost:3000/#project/creek-haven-waterfront</loc>
+    <loc>https://anamikamenon24.github.io/realestate/#project/solstice-palm-residences</loc>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>

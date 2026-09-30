@@ -97,33 +97,24 @@ Click **ADMIN CRM** in the top navigation bar to open the private advisory authe
 To upload this project to your GitHub account:
 
 ### Step 1: Create a new repository on GitHub
-1. Go to [github.com/new](https://github.com/new).
-2. Enter Repository name: `ann-real-estate-dubai`.
-3. Choose **Private** or **Public**.
-4. **Do not** initialize with a README, .gitignore, or license (we already have them).
-5. Click **Create repository**.
+---
 
-### Step 2: Initialize Git and Push from your Terminal
+## 🌐 Live GitHub Pages Deployment
 
-```bash
-# Navigate to project directory
-cd "c:\Users\Anamika Menon\Ann29Real"
+The live website is hosted on GitHub Pages:
+🔗 **[https://anamikamenon24.github.io/realestate/](https://anamikamenon24.github.io/realestate/)**
 
-# Initialize git (if not already done)
-git init
+### How GitHub Pages Hosting Works:
+- **Zero Server Setup**: Fully operational static client-side mode with embedded seed data and persistent `localStorage`.
+- **Live Interactive Features**: Property filtering, detail views, mortgage calculator, VIP registration with instant scoring, and private Admin CRM are 100% functional.
+- **Full-Stack Node.js Hybrid**: When running locally with `node server.js`, the portal seamlessly connects to PostgreSQL/Neon backend endpoints (`/api/...`).
 
-# Add all files (secrets in .env are automatically excluded by .gitignore)
-git add .
+### Enabling GitHub Pages in Your Repository:
+1. Open your repository on GitHub: `https://github.com/anamikamenon24/realestate`
+2. Click **Settings** (top navigation tab).
+3. In the left sidebar, click **Pages**.
+4. Under **Build and deployment**:
+   - **Source**: Select **GitHub Actions** (recommended — automatically deploys via `.github/workflows/pages.yml`)
+   - OR select **Deploy from a branch** -> Branch: `gh-pages` or `main` -> Folder: `/ (root)` -> Click **Save**.
+5. Your website will be live in 1–2 minutes at: `https://anamikamenon24.github.io/realestate/`
 
-# Create initial commit
-git commit -m "Initial commit: Ann Real Estate Dubai luxury portal & CRM"
-
-# Set default branch to main
-git branch -M main
-
-# Link your GitHub repository (replace USERNAME with your GitHub handle)
-git remote add origin https://github.com/USERNAME/ann-real-estate-dubai.git
-
-# Push everything to GitHub
-git push -u origin main
-```
